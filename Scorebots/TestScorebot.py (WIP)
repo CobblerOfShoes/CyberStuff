@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 
+ #!/usr/bin/env python3
 #~~~~~~~~~~~~~~~~~~~~~~~SETUP~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 import os
 import sys
@@ -77,16 +77,21 @@ class Task:
         else:
             return False
 #~~~~~~~~~~~~~~~~~~~~~~THINGS TO SCORE~~~~~~~~~~~~~~~~~~~~~~~~~#
-users = [User(mainUser), User(shoemanus), User(ahri)] #If a user is deleted, you get a penalty
+users = [User(mainUser), User(shoemanus)] #If a user is deleted, you get a penalty
 services = [] #If a service is down, you get a penalty
 allTasks = [
-	Task('Beginner','User ahri created', 3, '[ "$(grep ahri /etc/passwd)" ]'),
-	Task('Beginner','User ahri needs new password', 3, '[ "$(grep "passwd \-e" /thereisnobashhistory?)" ]'),
-	Task('Beginner','User shoemanus is an admin', 3, '[ "$(groups shoemanus | grep -e adm -e sudo)" ]'),
-	Task('Beginner','User Cody is destroyed', 3, '[ ! "$(grep cody /etc/passwd)" ]'),
-	Task('Returner','Bad sudoers line in /etc/sudoers.d/README', 5, '[ ! "$(grep "NOPASSWD" /etc/sudoers.d/README)" ]'),
-	Task('Returner','Bad sudoers line in /etc/sudoers.d/"   "', 5, '[ ! "$(grep "\!authenticate" /etc/sudoers.d/"   ")" ]'),
-	Task('Returner','/etc/group is now editable"   "', 5, '[ ! "$(lsattr /etc/group | grep a)" ]'),
+	Task('Beginner','User ahri created', 1, '[ "$(grep ahri /etc/passwd)" ]'),
+	Task('Beginner','User ahri needs new password', 2, '[ "$(grep "passwd \-e" /root/.bash_history /home/cyber/.bash_history /home/shoemanus/.bash_history)" ]'),
+	Task('Beginner','User shoemanus is an admin', 1, '[ "$(groups shoemanus | grep -e adm -e sudo)" ]'),
+	Task('Beginner','PAM enforces password rules', 1, '[ "$(grep minlen=8 /etc/pam.d/common-auth)" ]'),
+	Task('Beginner','User Cody is destroyed', 10, '[ ! "$(grep cody /etc/passwd)" ]'),
+	Task('Returner','Bad sudoers line in /etc/sudoers.d/README', 3, '[ ! "$(grep "NOPASSWD" /etc/sudoers.d/README)" ]'),
+	#Task('Returner','Bad sudoers line in /etc/sudoers.d/"   "', 3, '[ ! "$(grep "\!authenticate" /etc/sudoers.d/"   ")" ]'),
+	Task('Returner','/etc/group is now editable"   "', 3, '[ ! "$(lsattr /etc/group | grep a)" ]'),
+	Task('Returner','UID of shoemanus is not 0', 3, '[ ! "$(grep "shoemanus:x:0" /etc/passwd)" ]'),
+	Task('Returner','passwd file permissions', 3, '[ "$(ls -l /etc/passwd | grep -wr-wr---)" ]'),
+	Task('Returner','netcat bad!!!', 3, '[ ! "$(grep nc /etc/crontab" ]'),
+	Task('Returner','login.defs allows uid higher than 1003', 4, '[ ! "$(grep 1003 /etc/login.defs" ]'),
 	]
 groups = [] #groups that must exist, or else a penalty
 #~~~~~~~~~~~~~~~CREATE THE WEBSITE/CALCULATE POINTS~~~~~~~~~~~~~#
