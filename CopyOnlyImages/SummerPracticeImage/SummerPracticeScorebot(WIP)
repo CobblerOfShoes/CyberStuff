@@ -87,7 +87,6 @@ allTasks = [
 	Task('Beginner','User Cody is destroyed', 10, '[ ! "$(grep cody /etc/passwd)" ]'),
 	Task('Beginner','john gone', 2, '[ ! "$(dpkg -l | grep john)" ]'),
 	Task('Beginner','No samba!', 2, '[ ! "$(dpkg -l | grep samba)" ]'),
-	Task('Beginner','Wrong one', 2, '[ ! "$(dpkg -l | grep pure-ftpd)" ]'),
 	Task('Beginner','no', 2, '[ ! "$(dpkg -l | grep wireshark)" ]'),
 	Task('Beginner','UID of shoemanus is not 0', 1, '[ ! "$(grep "shoemanus:x:0" /etc/passwd)" ]'),
 	Task('Returner','Bad sudoers line in /etc/sudoers.d/README', 3, '[ ! "$(grep "NOPASSWD" /etc/sudoers.d/README)" ]'),
