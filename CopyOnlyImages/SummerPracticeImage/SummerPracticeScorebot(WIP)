@@ -96,7 +96,7 @@ allTasks = [
 	Task('Returner','login.defs allows uid higher than 1003', 4, '[ "$(grep 60000 /etc/login.defs" ]'),
 	Task('Returner','bad hostname', 2, '[ "$(grep "ubuntu" /etc/hostname" ]'),
 	Task('Returner','man is not actually a man', 2, '[ "$(grep "/var/cache/man" /etc/passwd | grep "/usr/sbin/nologin" " ]'),
-	Task('Returner','vsftpd is now useful', 3, '[ ! "$(grep "#writable" /etc/vsftpd.conf" ]'),
+	Task('Returner','vsftpd is now useful', 3, '[ ! "$(grep "#write_enable" /etc/vsftpd.conf" ]'),
 	Task('Returner','vsftpd is now usable', 3, '[ "$(grep "local_enable=YES" /etc/vsftpd.conf" ]'),\
 	Task('Returner','apache2 uses the correct port', 3, '[ "$(grep "80" /etc/apache2/ports.conf" ]'),
 	Task('Returner','apache2 uses the correct ssl port', 3, '[ "$(grep "443" /etc/apache2/ports.conf" ]'),
