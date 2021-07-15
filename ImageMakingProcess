@@ -1,0 +1,16 @@
+Start with the blank template I made
+  Has cyber user, install.py, and python installed
+  
+Add vulns and edit scorebot
+
+Edit url in install.py
+
+python3 install.py when ready
+
+Things to do last but before python3 install.py
+
+      Anything that may break the image
+      Things that do this:
+        chattr +a on important files
+        messing with sudo
+        deleting seemingly important things
