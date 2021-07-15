@@ -1,0 +1,52 @@
+Easy beginner stuff (5 or so)
+
+4. hacking tools
+5. media (maybe name it like an emoji?)
+
+Returner stuff (around 10-20)
+
+5. /bin/bash on games
+6. do some firefox stuff
+make aliases to remove netcat from netstat, have the alias hide itself
+
+
+
+
+
+
+Notes:
+
+Make sure to break stuff before sending out, clear history
+Deleted useradd
+Edited adduser with bad error message
+apt set coreutils on hold
+
+
+
+Needs fixing/To do:
+
+Error message alerts that hidden file is world writable
+	Maybe make non world writtable with extra sudo user with no password 
+
+
+
+
+
+
+Key:
+
+need user ahri
+delete cody
+add shoemanus to sudo/admin group
+NOPASSWD:ALL in /etc/sudoers.d/README
+chattr +a on /etc/group, needs to be removed
+shoemanus uid of 0
+everyone can write to passwd
+man user in passwd has a bash shell
+coreutils put on hold through apt
+apache2 stopped manually, "service apache2 start" to start
+
+vsftpd:
+	need to fix coreutils to completely install
+	#writable - uncomment to add to share
+	local_enable should = yes, need to change from no
