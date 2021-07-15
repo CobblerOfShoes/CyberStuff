@@ -25,8 +25,10 @@ apt set coreutils on hold
 
 Needs fixing/To do:
 
-Error message alerts that hidden file is world writable
-	Maybe make non world writtable with extra sudo user with no password 
+chattr +a /etc/group
+delete useradd command
+limit uid
+apt-mark hold coreutils
 
 
 
