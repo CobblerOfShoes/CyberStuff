@@ -3,7 +3,7 @@ Start with the blank template I made
   
 Add vulns and edit scorebot
 
-Edit url in install.py
+Edit url in install.py, make sure to link to the raw
 
 python3 install.py when ready
 
