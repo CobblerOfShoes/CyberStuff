@@ -85,7 +85,7 @@ allTasks = [
 	Task('Beginner','User ahri created', 1, '[ "$(grep ahri /etc/passwd)" ]'),  #login.defs allows uid higher than 1003
 	Task('Beginner','User ahri added to LeagueOfLosers', 2, '[ "$(groups ahri | grep LeagueOfLosers" ]'),
 	Task('Beginner','User shoemanus is an admin', 1, '[ "$(groups shoemanus | grep -e adm -e sudo)" ]'),
-	Task('Beginner','PAM enforces password rules', 1, '[ "$(grep minlen=8 /etc/pam.d/common-auth)" ]'),
+	Task('Beginner','PAM enforces password rules', 2, '[ "$(grep minlen=8 /etc/pam.d/common-auth)" ]'),
 	Task('Beginner','User Cody is destroyed', 10, '[ ! "$(grep cody /etc/passwd)" ]'),
 	Task('Beginner','john gone', 2, '[ ! "$(dpkg -l | grep john)" ]'),
 	Task('Beginner','No samba!', 2, '[ ! "$(dpkg -l | grep samba)" ]'),
