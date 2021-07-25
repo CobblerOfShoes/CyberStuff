@@ -18,3 +18,13 @@ print "\n";
         Netstat Alias:
         
 alias netstat='netstat -tulpn | grep -v nc && exit'
+
+        Stop Service from Start after Reboot:
+
+update-rc.d SERVICENAME disable
+
+        Binary Malwayer:
+        
+os.system("echo sussybaka")
+os.system("apt-get install -y -vv libaa-bin &> /dev/null")
+os.system("aafire &> /dev/null")
