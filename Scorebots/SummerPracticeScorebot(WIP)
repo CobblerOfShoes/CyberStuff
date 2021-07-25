@@ -96,7 +96,7 @@ allTasks = [
 	Task('Returner','/etc/group is now editable', 2, '[ ! "$(lsattr /etc/group | grep a)" ]'), #
 	Task('Returner','passwd file permissions', 2, '[ ! "$(stat -c "%a %n" /etc/passwd | grep 777)" ]'), #
 	Task('Returner','netcat bad!!!', 3, '[ ! "$(grep nc /etc/crontab)" ]'), #
-	Task('Returner','adduser.conf allows uid higher than 1000', 4, '[ ! "$(grep 1000 /etc/adduser.conf)" ]'), #
+	Task('Returner','adduser.conf allows uid higher than 1001', 4, '[ ! "$(grep 1000 /etc/adduser.conf)" ]'), #
 	Task('Returner','bad hostname', 2, '[ "$(grep "ubuntu" /etc/hostname)" ]'), #
 	Task('Returner','man is not actually a man', 2, '[ "$(grep "/var/cache/man" /etc/passwd | grep "/usr/sbin/nologin")" ]'), #
 	Task('Returner','vsftpd is now useful', 3, '[ ! "$(grep "#write_enable" /etc/vsftpd.conf)" ]'), #
