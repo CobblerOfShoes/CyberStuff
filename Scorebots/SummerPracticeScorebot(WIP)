@@ -80,7 +80,7 @@ class Task:
 			return False
 #~~~~~~~~~~~~~~~~~~~~~~THINGS TO SCORE~~~~~~~~~~~~~~~~~~~~~~~~~#
 users = [User(mainUser)] #If a user is deleted, you get a penalty  --add user shoemanus
-services = [Service('apache2',80), Service('firewalld'), Service('vsftpd',21)] #If a service is down, you get a penalty
+services = [Service('apache2',80), Service('vsftpd',21)] #If a service is down, you get a penalty
 allTasks = [
 	Task('Beginner','User ahri created', 1, '[ "$(grep ahri /etc/passwd)" ]'),  #login.defs allows uid higher than 1003
 	Task('Beginner','User ahri needs new password', 2, '[ "$(grep "passwd \-e" /root/.bash_history /home/cyber/.bash_history /home/shoemanus/.bash_history)" ]'),
@@ -89,6 +89,7 @@ allTasks = [
 	Task('Beginner','User Cody is destroyed', 10, '[ ! "$(grep cody /etc/passwd)" ]'),
 	Task('Beginner','john gone', 2, '[ ! "$(dpkg -l | grep john)" ]'),
 	Task('Beginner','No samba!', 2, '[ ! "$(dpkg -l | grep samba)" ]'),
+	Task('Beginner','Firewalld is enabled', 3, '[ "$(service --status-all | grep firewalld | grep \+)" ]'),
 	Task('Beginner','no', 2, '[ ! "$(dpkg -l | grep wireshark)" ]'),
 	Task('Beginner','UID of shoemanus is not 0', 1, '[ ! "$(grep "shoemanus:x:0" /etc/passwd)" ]'),
 	Task('Returner','Bad sudoers line in /etc/sudoers.d/README', 3, '[ ! "$(grep "NOPASSWD" /etc/sudoers.d/README)" ]'),
