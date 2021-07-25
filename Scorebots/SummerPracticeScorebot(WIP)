@@ -109,7 +109,7 @@ allTasks = [
 	Task('Advanced','coreutils not set on hold', 5, '[ ! "$(apt-mark showhold | grep coreutils" ]'),
 	Task('Advanced','firewalld not set on hold', 5, '[ ! "$(apt-mark showhold | grep firewalld" ]'),
 	Task('Advanced','malicious code from firewall-cmd removed', 5, '[ ! "$(grep aafire /usr/bin/firewall-cmd" ]'),
-	Task('Advanced','removed bad alias', 5, '[ ! "$(grep netcat /root/.bashrc" ]'),
+	Task('Advanced','removed bad alias', 5, '[ ! "$(grep nc /root/\.bashrc" ]'),
 	Task('Advanced','Apache2 hides private information', 3, '[ "$(grep "ServerTokens Prod" /etc/apache2/conf-available/security.conf" ]'),
 	Task('Advanced','Firewalld enables vsftpd/port 21', 5, '[ "$(firewall-cmd --zone=public --list-ports | grep 21 " ]'),
 	Task('Advanced','Firewalld enables apache2/port 80', 5, '[ "$(firewall-cmd --zone=public --list-ports | grep 80 " ]')
