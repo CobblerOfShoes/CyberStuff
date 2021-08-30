@@ -1,0 +1,5 @@
+Welcome Linux people to the 10th anniversary of Cyber Security! On this image, you will be tasked with protecting the valuable secret plans that the Leadership Team has been crafting to make this a HUGE year. The difficulty of tasks ranges from 'baby's first steps' to 'what the heck am I doing.' This image will be used as a reference to see how your knowledge of Linux security has progressed. Put forth your best effort, but don't be ashamed if you can't get everything.
+
+The virtual machine you are operating on is currently running Ubuntu 16. It has been decided by the council of Linux training leads (myself) that 16 is a stupid number and 18 is far superior. Please update this OS of this image to Ubuntu 18.04.5. However, you are still expected to configure the image to never notify the user of a new version of Ubuntu once this is completed.
+
+The use of hacking tools on this machine is strictly prohibited as it has been stated by Justin Tony that; "Hacking tools are ******* lame." - 
