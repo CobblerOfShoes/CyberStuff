@@ -7,7 +7,7 @@ import requests
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mainUser = 'cyber' #the place to install ScoringEngine
 scoreBotLoc = requests.get('url of scorebot')
-teamInfoLoc = requests.get('https://raw.githubusercontent.com/CyberCyber2/LinuxScorebot/main/BaseFiles/TeamInfo.py')
+teamInfoLoc = requests.get('https://raw.githubusercontent.com/CobblerOfShoes/CyberStuff/main/Scorebots/BaseFiles/TeamInfo.py')
 with open ('TeamInfo1.py', 'w') as outf:
     outf.write(teamInfoLoc.text)
 
