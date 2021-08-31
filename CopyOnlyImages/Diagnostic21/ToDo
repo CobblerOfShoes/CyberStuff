@@ -2,8 +2,17 @@ Stuff to Score:
 
 Everything in audit log (unless it is not patriot related)
 login.defs
-sshd.config
-apahce2 config
-mysql config
+ssh
+    config
+    version number (currently 7.2, latest is 8.2
+apahce2 
+    config
+mysql 
+    config
 php stuff
 ufw
+lightdm minimum uid?
+
+Stuff to learn:
+
+how to install outdated packages, find the full version to isntall
