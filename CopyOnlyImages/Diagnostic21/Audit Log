@@ -8,3 +8,10 @@ Started working on the README
 add users: aterry, shoeman, joneill, rocky, theguy
 delete password for theguy
 gave 'games' user a shell (was /usr/sbin/nologin
+
+login.defs
+			set login retries to 50
+			change login temout from 60 to 60000
+			MD5 un-commented and set to yes
+			commented ENCRYPT_METHOD
+			
