@@ -1,0 +1,10 @@
+8/29
+
+install python3-matplotlib
+
+8/30
+
+Started working on the README
+add users: aterry, shoeman, joneill, rocky, theguy
+delete password for theguy
+gave 'games' user a shell (was /usr/sbin/nologin
