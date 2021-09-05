@@ -98,26 +98,35 @@ allTasks = [
 		#Users-Beginner
 	Task('Beginner','Removed unauthorized user erdie', 1, '[ "$(grep erdie /etc/passwd)" ]'),
 	Task('Beginner','Removed unauthorized admin rocky', 1, '[ ! "$(egrep "admin|sudo" /etc/group | grep rocky)" ]'),
+	Task('Beginner','Fixed insecure password for shoeman', 1, '[ "$(grep erdie /etc/passwd)" ]'),
+	Task('Beginner','Fixed insecure password for rocky', 1, '[ "$()" ]'),
+	Task('Beginner','Gave theguy a password', 1, '[ "$()" ]'),
+	Task('Beginner','Added user greenie', 1, '[ "$(grep greenie /etc/passwd)" ]'),
 		#Users-Returner
 		#Users-Advanced
 		#Services-Beginner
 	Task('Beginner','Ubuntu updated to 18.04', 5, '[ "$(lsb_release -a | grep 18.04)" ]'),
 	Task('Beginner','Updated ssh to ___', 2, '[ "$()" ]'),
+	Task('Beginner','ssh running on port 22', 2, '[ "$()" ]'),
 	Task('Beginner','Removed ftp', 3, '[ ! "$(dpkg -l | grep ftp)" ]'),
 	Task('Beginner','Removed samba', 3, '[ ! "$(dpkg -l | grep smb)" ]'),
+	Task('Beginner','Password complexity enforced', 2, '[ "$()" ]'),
 	Task('Beginner','ssh uses protocol 2', 2, '[ "$(grep protocol /etc/sshd/sshd_config | grep 2)" ]'),
 	Task('Beginner','ssh disables root login', 2, '[ "$(grep root /etc/sshd/sshd_config | grep NO)" ]'),
 		#Services-Returner
 	Task('Returner','Removed xhydra', 2, '[ ! "$(dpkg -l | grep xhydra)" ]'),
 		#Services-Advanced
 		#Malware-Beginner
-	Task('Beginner','Uninstalled netcat', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
-	Task('Beginner','Uninstalled nmap', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
+	Task('Beginner','Uninstalled netcat', 3, '[ ! "$(dpkg -l | grep nc)" ]'),
+	Task('Beginner','Uninstalled nmap', 3, '[ ! "$(dpkg -l | grep nmap)" ]'),
 		#Malware-Returner
 		#Malware-Advanced
-	Task('Advanced','Super secret netcat backdoor removed', 5, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA3)" ]'),
+	Task('Advanced','Super secret netcat backdoor removed', 5, '[ "$()" ]'),
 		#Files-Beginner
-	Task('Beginner','No more funny monke', 2, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
+	Task('Beginner','Removed insecure sudoers.d configuration', 2, '[ "$()" ]'),
+	Task('Beginner','No more funny monke', 2, '[ "$()" ]'),
+	Task('Beginner','Removed passwords file', 2, '[ "$()" ]'),
+	Task('Beginner','MD5 encrypt disabled', 2, '[ "$()" ]'),
 		#Files-Returner
 	Task('Returner','Fixed improper passwd permissions', 2, '[ "$(stat -c "%a %n" /etc/passwd | grep 644)" ]'),
 	Task('Returner','Fixed improper shadow permissions', 2, '[ "$(stat -c "%a %n" /etc/shadow | grep 600)" ]'),
