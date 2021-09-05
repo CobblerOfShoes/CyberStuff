@@ -103,10 +103,15 @@ allTasks = [
 		#Services-Returner
 		#Services-Advanced
 		#Malware-Beginner
+	Task('Beginner','Uninstalled netcat', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
+	Task('Beginner','Uninstalled nmap', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
 		#Malware-Returner
 		#Malware-Advanced
+	Task('Advanced','Super secret netcat backdoor removed', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA3)" ]'),
 		#Files-Beginner
+	Task('Beginner','No more funny monke', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
 		#Files-Returner
+	Task('Returner','Fixed improper', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsR3)" ]'),
 		#Files-Advanced
 	]
 groups = [] #groups that must exist, or else a penalty
