@@ -84,12 +84,19 @@ services = [Service('ssh',22), Service('apache2',80), Service('mysql',3306)] #If
 allTasks = [
 		#0-50 for beginners, 50-75 for returners, 75-100 for advanced
 		#Forensics-Beginner
+	Task('Beginner','Beginner Forensics 1', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
+	Task('Beginner','Beginner Forensics 2', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB2)" ]'),
+	Task('Beginner','Beginner Forensics 3', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB3)" ]'),
 		#Forensics-Returner
-	Task('Returner','Returner Forensics 1', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
-	Task('Returner','Returner Forensics 2', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
-	Task('Returner','Returner Forensics 3', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/Forensics3)" ]'),
+	Task('Returner','Returner Forensics 1', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsR1)" ]'),
+	Task('Returner','Returner Forensics 2', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsR2)" ]'),
+	Task('Returner','Returner Forensics 3', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsR3)" ]'),
 		#Forensics-Advanced
+	Task('Advanced','Advanced Forensics 1', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA1)" ]'),
+	Task('Advanced','Advanced Forensics 2', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA2)" ]'),
+	Task('Advanced','Advanced Forensics 3', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA3)" ]'),
 		#Users-Beginner
+	Task('Beginner','Removed unauthorized user erdie', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
 		#Users-Returner
 		#Users-Advanced
 		#Services-Beginner
