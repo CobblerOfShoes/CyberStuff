@@ -96,23 +96,33 @@ allTasks = [
 	Task('Advanced','Advanced Forensics 2', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA2)" ]'),
 	Task('Advanced','Advanced Forensics 3', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA3)" ]'),
 		#Users-Beginner
-	Task('Beginner','Removed unauthorized user erdie', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
+	Task('Beginner','Removed unauthorized user erdie', 1, '[ "$(grep erdie /etc/passwd)" ]'),
+	Task('Beginner','Removed unauthorized admin rocky', 1, '[ ! "$(egrep "admin|sudo" /etc/group | grep rocky)" ]'),
 		#Users-Returner
 		#Users-Advanced
 		#Services-Beginner
+	Task('Beginner','Ubuntu updated to 18.04', 5, '[ "$(lsb_release -a | grep 18.04)" ]'),
+	Task('Beginner','Updated ssh to ___', 5, '[ "$()" ]'),
+	Task('Beginner','Removed ftp', 3, '[ ! "$(dpkg -l | grep ftp)" ]'),
+	Task('Beginner','Removed samba', 3, '[ ! "$(dpkg -l | grep smb)" ]'),
+	Task('Beginner','ssh uses protocol 2', 2, '[ "$(grep protocol /etc/sshd/sshd_config | grep 2)" ]'),
+	Task('Beginner','ssh disables root login', 2, '[ "$(grep root /etc/sshd/sshd_config | grep NO)" ]'),
 		#Services-Returner
+	Task('Returner','Removed xhydra', 2, '[ ! "$(dpkg -l | grep xhydra)" ]'),
 		#Services-Advanced
 		#Malware-Beginner
 	Task('Beginner','Uninstalled netcat', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
 	Task('Beginner','Uninstalled nmap', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
 		#Malware-Returner
 		#Malware-Advanced
-	Task('Advanced','Super secret netcat backdoor removed', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA3)" ]'),
+	Task('Advanced','Super secret netcat backdoor removed', 5, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA3)" ]'),
 		#Files-Beginner
-	Task('Beginner','No more funny monke', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
+	Task('Beginner','No more funny monke', 2, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
 		#Files-Returner
-	Task('Returner','Fixed improper', 3, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsR3)" ]'),
+	Task('Returner','Fixed improper passwd permissions', 2, '[ "$(stat -c "%a %n" /etc/passwd | grep 644)" ]'),
+	Task('Returner','Fixed improper shadow permissions', 2, '[ "$(stat -c "%a %n" /etc/shadow | grep 600)" ]'),
 		#Files-Advanced
+	Task('Advanced','Proper umask in root .bashrc', 2, '[ "$(grep umask /root/.bashrc | grep 022)" ]'),
 	]
 groups = [] #groups that must exist, or else a penalty
 #~~~~~~~~~~~~~~~CREATE THE WEBSITE/CALCULATE POINTS~~~~~~~~~~~~~#
