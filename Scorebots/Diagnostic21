@@ -102,7 +102,7 @@ allTasks = [
 		#Users-Advanced
 		#Services-Beginner
 	Task('Beginner','Ubuntu updated to 18.04', 5, '[ "$(lsb_release -a | grep 18.04)" ]'),
-	Task('Beginner','Updated ssh to ___', 5, '[ "$()" ]'),
+	Task('Beginner','Updated ssh to ___', 2, '[ "$()" ]'),
 	Task('Beginner','Removed ftp', 3, '[ ! "$(dpkg -l | grep ftp)" ]'),
 	Task('Beginner','Removed samba', 3, '[ ! "$(dpkg -l | grep smb)" ]'),
 	Task('Beginner','ssh uses protocol 2', 2, '[ "$(grep protocol /etc/sshd/sshd_config | grep 2)" ]'),
