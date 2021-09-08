@@ -18,3 +18,8 @@ Standard Users:
 rocky:meadows
 theguy: 
 
+Critical Services
+
+ssh:22
+mysql:3306
+apache2:80
