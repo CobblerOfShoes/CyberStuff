@@ -87,11 +87,11 @@ allTasks = [
 	Task('Beginner','Beginner Forensics 1', 3, '[ "$(grep 66c307d3bcd35df04b7d913fcb8c39a4 /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
 	Task('Beginner','Beginner Forensics 2', 3, '[ "$(grep /home/cyber/Downloads/potionseller.mp4 /home/'+ mainUser + '/Desktop/ForensicsB2)" ]'),
 		#Forensics-Returner
-	Task('Returner','Returner Forensics 1', 4, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsR1)" ]'),
-	Task('Returner','Returner Forensics 2', 4, '[ "$(grep  /home/'+ mainUser + '/Desktop/ForensicsR2)" ]'),
+	Task('Returner','Returner Forensics 1', 4, '[ "$(grep "This was a scam. I do not give points for being deleted. I am sorry for lying." /home/'+ mainUser + '/Desktop/ForensicsR1)" ]'),
+	Task('Returner','Returner Forensics 2', 4, '[ "$(grep "86c2629c-7a2d-44cd-914e-62d97c9b75b1" /home/'+ mainUser + '/Desktop/ForensicsR2)" ]'),
 		#Forensics-Advanced
-	Task('Advanced','Advanced Forensics 1', 5, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA1)" ]'),
-	Task('Advanced','Advanced Forensics 2', 5, '[ "$(grep test /home/'+ mainUser + '/Desktop/ForensicsA2)" ]'),
+	Task('Advanced','Advanced Forensics 1', 5, '[ "$(grep "Trick question, last names are a fabricated social construct and do not actually exist." /home/'+ mainUser + '/Desktop/ForensicsA1)" ]'),
+	Task('Advanced','Advanced Forensics 2', 5, '[ "$(grep 5120 /home/'+ mainUser + '/Desktop/ForensicsA2)" ]'),
 	Task('Advanced','Halfway there! Say, Das M sounds like a cool name for a STEGosaurus', 0, '[ "$(egrep -e "Das M" -e "das m" /home/'+ mainUser + '/Desktop/ForensicsA1)" ]'),
 		#Users-Beginner
 	Task('Beginner','Removed unauthorized user erdie', 1, '[ "$(grep erdie /etc/passwd)" ]'), #!
