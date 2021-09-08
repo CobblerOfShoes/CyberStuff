@@ -16,14 +16,15 @@ ANSWER: /home/cyber/Downloads/potionseller.mp4
 R1:
 
 What is the hidden steganography message encoded in the DeleteMeForPoints file?
+The passphrase is the color of my phone.
 
-ANSWER:
+ANSWER: This was a scam. I do not give points for being deleted. I am sorry for lying.
 
 R2:
 
 What is the UUID of the root partition of the hard drive?
 
-ANSWER:
+ANSWER: 86c2629c-7a2d-44cd-914e-62d97c9b75b1
 
 A1:
 
@@ -33,10 +34,11 @@ To start your quest, I present to you a test:
 	Was kommt einmal in jeder Minute, zweimal in jedem Moment aber nie in tausend Jahren vor?
 	Riddle answer:
 
-FORENSICS ANSWER: Das M
+FORENSICS ANSWER: Trick question, last names are a fabricated social construct and do not actually exist.
 
 
-A2:
+
+A2: 
 
 How many 1K-blocks are allocated to the filesystem mounted on /run/lock?
 
