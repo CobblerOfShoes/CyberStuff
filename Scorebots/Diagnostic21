@@ -94,7 +94,7 @@ allTasks = [
 	Task('Advanced','Advanced Forensics 2', 5, '[ "$(grep 5120 /home/'+ mainUser + '/Desktop/ForensicsA2)" ]'),
 	Task('Advanced','Halfway there! Say, Das M sounds like a cool name for a STEGosaurus', 0, '[ "$(egrep -e "Das M" -e "das m" /home/'+ mainUser + '/Desktop/ForensicsA1)" ]'),
 		#Users-Beginner
-	Task('Beginner','Removed unauthorized user erdie', 1, '[ "$(grep erdie /etc/passwd)" ]'), #!
+	Task('Beginner','Removed unauthorized user erdie', 1, '[ ! "$(grep erdie /etc/passwd)" ]'), #! ##
 	Task('Beginner','Removed unauthorized admin rocky', 1, '[ ! "$(grep -e admin -e sudo /etc/group | grep rocky)" ]'), #!
 	Task('Beginner','Fixed insecure password for shoeman', 1, '[ ! "$(grep shoeman /etc/shadow | grep $6$qNRUkogj$ZcTXD9YJKcVEUIDNrik2VTuWpNC6w4ECTemhNXdcaGUYw6RpZRQPNqcB3twOtSjFF04J3Pis.6eoO6K.9NcRX1)" ]'), #!
 	Task('Beginner','Gave theguy a password', 1, '[ ! "$(grep theguy /etc/shadow | grep ::0)" ]'), #!
@@ -120,9 +120,9 @@ allTasks = [
 		#Malware-Returner
 	Task('Beginner','Removed funny crontab prank (you just walked the prank)(just pretend it was working)', 3, '[ ! "$(grep aafire /etc/crontab)" ]'), #!
 		#Malware-Advanced
-	Task('Advanced','Super ultra mega secret netcat backdoor (this also may or may not be working) removed', 5, '[ "$(grep netstat /root/.bashrc)" ]'), #!
+	Task('Advanced','Super ultra mega secret netcat backdoor (this also may or may not be working) removed', 5, '[ ! "$(grep netstat /root/.bashrc)" ]'), #! ##
 		#Files-Beginner
-	Task('Beginner','Removed insecure sudoers.d configuration', 3, '[ "$(grep NOPASSWD /etc/sudoers.d/README)" ]'), #!
+	Task('Beginner','Removed insecure sudoers.d configuration', 3, '[ ! "$(grep NOPASSWD /etc/sudoers.d/README)" ]'), #! ##
 	Task('Beginner','Removed passwords file', 3, '[ ! "$(grep meadows /home/rocky/ThisFileDoesNotContainMyPassword.txt)" ]'), #!
 		#Files-Returner
 	Task('Returner','Fixed improper passwd permissions', 2, '[ "$(stat -c "%a %n" /etc/passwd | grep 644)" ]'), #!
