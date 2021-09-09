@@ -118,9 +118,9 @@ allTasks = [
 	Task('Beginner','Uninstalled netcat', 3, '[ ! "$(dpkg -l | grep netcat)" ]'), #!
 	Task('Beginner','Uninstalled nmap', 3, '[ ! "$(dpkg -l | grep nmap)" ]'), #!
 		#Malware-Returner
-	Task('Beginner','Removed funny crontab prank (you just walked the prank)(just pretend it was working)', 3, '[ ! "$(grep aafire /etc/crontab)" ]'), #!
+	Task('Beginner','Removed funny crontab prank (you just walked the prank)(just pretend it was working)', 3, '[ ! "$(grep aterry /etc/crontab)" ]'), #!
 		#Malware-Advanced
-	Task('Advanced','Super ultra mega secret netcat backdoor (this also may or may not be working) removed', 5, '[ ! "$(grep netstat /root/.bashrc)" ]'), #! ##
+	Task('Advanced','Super ultra mega secret netcat backdoor (it now works!!!) removed', 5, '[ ! "$(grep netstat /root/.bashrc)" ]'), #! ##
 		#Files-Beginner
 	Task('Beginner','Removed insecure sudoers.d configuration', 3, '[ ! "$(grep NOPASSWD /etc/sudoers.d/README)" ]'), #! ##
 	Task('Beginner','Removed passwords file', 3, '[ ! "$(grep meadows /home/rocky/ThisFileDoesNotContainMyPassword.txt)" ]'), #!
