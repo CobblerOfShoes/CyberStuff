@@ -106,7 +106,7 @@ allTasks = [
 	Task('Beginner','Ubuntu updated to 18.04', 5, '[ "$(lsb_release -a | grep 18.04)" ]'), #!
 	Task('Beginner','ssh running on port 22', 3, '[ "$(netstat -tulpn | grep ssh | grep 22)" ]'), #!
 	Task('Beginner','Removed samba', 3, '[ ! "$(dpkg -l | grep samba)" ]'), #!
-	Task('Beginner','Password complexity enforced', 3, '[ "$(grep "minlen=8" )" ]'), #!
+	Task('Beginner','Password complexity enforced', 3, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'), #!
 	Task('Beginner','ssh uses protocol 2', 3, '[ "$(grep protocol /etc/sshd/sshd_config | grep 2)" ]'), #!
 	Task('Beginner','ssh disables root login', 3, '[ "$(grep root /etc/sshd/sshd_config | grep NO)" ]'), #!
 	Task('Beginner','ufw enabled', 3, '[ ! "$(ufw status | grep inactive)" ]'), #!
