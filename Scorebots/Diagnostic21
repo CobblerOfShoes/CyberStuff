@@ -100,15 +100,15 @@ allTasks = [
 	Task('Beginner','Gave theguy a password', 1, '[ ! "$(grep theguy /etc/shadow | grep ::0)" ]'), #!
 	Task('Beginner','Added user greenie', 1, '[ "$(grep greenie /etc/passwd)" ]'), #!
 		#Users-Returner
-	Task('Returner','armin group does not have sudo access', 2, '[ "$(grep armin /etc/sudoers)" ]'), #!
+	Task('Returner','admn group does not have sudo access', 2, '[ ! "$(grep admn /etc/sudoers)" ]'), #!
 		#Users-Advanced
 		#Services-Beginner
 	Task('Beginner','Ubuntu updated to 18.04', 5, '[ "$(lsb_release -a | grep 18.04)" ]'), #!
-	Task('Beginner','ssh running on port 22', 3, '[ "$(netstat -tulpn | grep ssh | grep 22)" ]'), #!
+	Task('Beginner','ssh running on port 22', 3, '[ "$(grep 22 /etc/ssh/sshd_config)" ]'), #!
 	Task('Beginner','Removed samba', 3, '[ ! "$(dpkg -l | grep samba)" ]'), #!
 	Task('Beginner','Password complexity enforced', 3, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'), #!
-	Task('Beginner','ssh uses protocol 2', 3, '[ "$(grep protocol /etc/sshd/sshd_config | grep 2)" ]'), #!
-	Task('Beginner','ssh disables root login', 3, '[ "$(grep root /etc/sshd/sshd_config | grep NO)" ]'), #!
+	Task('Beginner','ssh uses protocol 2', 3, '[ "$(grep protocol /etc/ssh/sshd_config | grep 2)" ]'), #!
+	Task('Beginner','ssh disables root login', 3, '[ "$(grep root /etc/ssh/sshd_config | grep NO)" ]'), #!
 	Task('Beginner','ufw enabled', 3, '[ ! "$(ufw status | grep inactive)" ]'), #!
 		#Services-Returner
 	Task('Returner','mySQL using correct port', 2, '[ "$(netstat -tulpn | grep 3306)" ]'), #!
