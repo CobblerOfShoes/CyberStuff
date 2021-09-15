@@ -131,7 +131,7 @@ allTasks = [
 	Task('Returner','IPV4 forwarding disabled', 2, '[ "$(grep "forward = 0" /etc/sysctl.conf)" ]'), #!
 		#Files-Advanced
 	Task('Advanced','Proper umask in root .bashrc', 5, '[ "$(grep umask /root/.profile | grep 022)" ]'), #!
-	Task('Advanced','Bad clear alias', 5, '[ ! "$(grep alias /root/.bashrc)" ]'), #!
+	Task('Advanced','Bad clear alias', 5, '[ ! "$(grep clear /root/.bashrc)" ]'), #!
 	]
 groups = [] #groups that must exist, or else a penalty
 #~~~~~~~~~~~~~~~CREATE THE WEBSITE/CALCULATE POINTS~~~~~~~~~~~~~#
