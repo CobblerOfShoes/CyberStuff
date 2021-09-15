@@ -100,7 +100,7 @@ allTasks = [
 	Task('Beginner','Gave theguy a password', 1, '[ ! "$(grep theguy /etc/shadow | grep ::0)" ]'), #!
 	Task('Beginner','Added user greenie', 1, '[ "$(grep greenie /etc/passwd)" ]'), #!
 		#Users-Returner
-	Task('Returner','armin group does not have sudo access', 2, '[ "$()" ]'), #!
+	Task('Returner','armin group does not have sudo access', 2, '[ "$(grep armin /etc/sudoers)" ]'), #!
 		#Users-Advanced
 		#Services-Beginner
 	Task('Beginner','Ubuntu updated to 18.04', 5, '[ "$(lsb_release -a | grep 18.04)" ]'), #!
