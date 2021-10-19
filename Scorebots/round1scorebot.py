@@ -86,12 +86,13 @@ allTasks = [
 	Task('Forensics','Forensics 1', 5, '[ "$(grep /home/alex/Downloads/pretendthisismusic.mp3 /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
 	Task('Forensics','Forensics 2', 5, '[ "$(grep 37c570318db89c57745c31ed12af1da8 /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
   	#Users
-  	Task('Users','Delete unauthorized users wes', 4, '[ ! "$(grep wes /etc/passwd)" ]')
-  	Task('Users','ayan is an authorized admin', 4, '[ "$(egrep adm|sudo /etc/group | grep ayan)" ]')
-  	Task('Users','owen is not an authorized admin', 4, '[ ! "$(egrep adm|sudo /etc/group | grep owen)" ]')
-  	Task('Users','Changed insecure password for landon', 4, '[ ! "$(grep "XD4SAtazLmK5r2k/lEuqjTqdOe7h9ONShQrBo.ALjcG7Vnw8bh1ehT.jjbZa.BhMp1KJjLMq/eUXGiys/V3a3/" /etc/shadow)" ]')
- 	Task('Users','Gave brady a password', 4, '[ ! "$(grep "brady::18919:0:99999:7:::" /etc/shadow)" ]')
+  	Task('Users','Delete unauthorized users wes', 3, '[ ! "$(grep wes /etc/passwd)" ]')
+  	Task('Users','ayan is an authorized admin', 3, '[ "$(egrep adm|sudo /etc/group | grep ayan)" ]')
+  	Task('Users','owen is not an authorized admin', 3, '[ ! "$(egrep adm|sudo /etc/group | grep owen)" ]')
+  	Task('Users','Changed insecure password for landon', 3, '[ ! "$(grep "XD4SAtazLmK5r2k/lEuqjTqdOe7h9ONShQrBo.ALjcG7Vnw8bh1ehT.jjbZa.BhMp1KJjLMq/eUXGiys/V3a3/" /etc/shadow)" ]')
+ 	Task('Users','Gave brady a password', 3, '[ ! "$(grep "brady::18919:0:99999:7:::" /etc/shadow)" ]')
  	Task('Users','Added user eli', 5, '[ "$(grep eli /etc/passwd)" ]')
+	Task('Users','Root authentication requires a password', 5, '[ ! "$(grep NOPASSWD /etc/sudoers)" ]')
   	#Files
   	Task('Files','Deleted music files in /home/alex/Downloads', 5, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]')
   	Task('Files','Deleted list of passwords in /home/max', 5, '[ ! "$(grep passwords.txt /home/max)" ]')
