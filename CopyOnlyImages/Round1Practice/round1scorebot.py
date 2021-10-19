@@ -86,30 +86,32 @@ allTasks = [
 	Task('Forensics','Forensics 1', 5, '[ "$(grep /home/alex/Downloads/pretendthisismusic.mp3 /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
 	Task('Forensics','Forensics 2', 5, '[ "$(grep test /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
   	#Users
-  	Task('Users','Delete unauthorized users wes', 3, '[ ! "$(grep wes /etc/passwd)" ]')
-  	Task('Users','ayan is an authorized admin', 3, '[ "$(egrep adm|sudo /etc/group | grep ayan)" ]')
-  	Task('Users','owen is not an authorized admin', 3, '[ ! "$()" ]')
-  	Task('Users','Changed insecure password for landon', 3, '[ "$()" ]')
- 	Task('Users','Gave brady a password', 3, '[ "$()" ]')
- 	Task('Users','Added user ', 3, '[ "$(grep shaun /etc/passwd)" ]')
+  	Task('Users','Delete unauthorized users wes', 4, '[ ! "$(grep wes /etc/passwd)" ]')
+  	Task('Users','ayan is an authorized admin', 4, '[ "$(egrep adm|sudo /etc/group | grep ayan)" ]')
+  	Task('Users','owen is not an authorized admin', 4, '[ ! "$(egrep adm|sudo /etc/group | grep owen)" ]')
+  	Task('Users','Changed insecure password for landon', 4, '[ ! "$(grep "XD4SAtazLmK5r2k/lEuqjTqdOe7h9ONShQrBo.ALjcG7Vnw8bh1ehT.jjbZa.BhMp1KJjLMq/eUXGiys/V3a3/" /etc/shadow)" ]')
+ 	Task('Users','Gave brady a password', 4, '[ ! "$(grep "brady::18919:0:99999:7:::" /etc/shadow)" ]')
+ 	Task('Users','Added user eli', 5, '[ "$(grep eli /etc/passwd)" ]')
   	#Files
-  	Task('Files','Deleted music files in /home/alex/Downloads', 3, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]')
-  	Task('Files','Deleted list of passwords in /home/max', 3, '[ "$(grep passwords.txt /home/max)" ]')
+  	Task('Files','Deleted music files in /home/alex/Downloads', 5, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]')
+  	Task('Files','Deleted list of passwords in /home/max', 5, '[ ! "$(grep passwords.txt /home/max)" ]')
   	#Pam
-	Task('PAM','Did common-password stuff', 5, '[ "$()" ]'),
-	Task('PAM','Did common-auth stuff', 5, '[ "$()" ]'),
+	Task('PAM','Did common-password stuff', 5, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'),
+	Task('PAM','Did common-auth stuff', 5, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'),
   	#Login.defs
-	Task('login.defs','Password age restrictions set', 5, '[ "$()" ]'),
-	Task('login.defs','MD5 disabled', 5, '[ "$()" ]'),
-	Task('login.defs','Proper SHA version used', 5, '[ "$()" ]'),
+	Task('login.defs','Password age restrictions set', 5, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'),
+	Task('login.defs','MD5 disabled', 5, '[ "$(grep MD5_CRYPT_ENAB /etc/login.defs | grep no)" ]'),
+	Task('login.defs','Proper SHA version used', 5, '[ "$(grep "ENCRYPT_METHOD SHA256" /etc/login.defs)" ]'),
   	#SSH
 	Task('SSH','ssh does not permit root login', 5, '[ "$(grep PermitRootLogin /etc/ssh/sshd_config | egrep no|No|NO)" ]'),
 	#Malware
-	Task('Malware','Remove game conqueror', 5, '[ "$(dpkg -l | grep conqueror)" ]'),
+	Task('Malware','Remove freeciv', 5, '[ "$(dpkg -l | grep freeciv)" ]'),
 	Task('Malware','Remove netcat', 5, '[ "$(dpkg -l | grep netcat)" ]'),
 	Task('Malware','Remove apache2', 5, '[ "$(dpkg -l | grep apache2)" ]'),
 	#UFW
 	Task('UFW','Uncomplicated Firewall is enabled', 5, '[ "$(service --status-all | grep ufw | grep +)" ]'),
+	#lightdm
+	Task('lightdm','Guest user is disabled', 5, '[ "$(grep "allow-guest=false" /etc/lightdm/lightdm.conf)" ]')
 ]
 groups = [] #groups that must exist, or else a penalty
 #~~~~~~~~~~~~~~~CREATE THE WEBSITE/CALCULATE POINTS~~~~~~~~~~~~~#
