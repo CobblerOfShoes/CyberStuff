@@ -82,19 +82,34 @@ class Task:
 users = [User(mainUser), User('jongun5') ] #If a user is deleted, you get a penalty
 services = [Service('apache2', 443)] #If a service is down, you get a penalty
 allTasks = [
-  #Forensics
-	Task('Forensics','Forensics 1', 5, '[ "$(grep test /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
+  	#Forensics
+	Task('Forensics','Forensics 1', 5, '[ "$(grep /home/alex/Downloads/pretendthisismusic.mp3 /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
 	Task('Forensics','Forensics 2', 5, '[ "$(grep test /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
-	#Users
-  Task('Users','Delete unauthorized users wes', 3, '[ ! "$(grep wes /etc/passwd)" ]')
-  Task('Users','ayan is an authorized admin', 3, '[ "$(egrep adm|sudo /etc/group | grep ayan)" ]')
-  Task('Users','owen is not an authorized admin', 3, '[ ! "$()" ]')
-  Task('Users','Changed insecure password for landon', 3, '[ "$()" ]')
-  Task('Users','Gave brady a password', 3, '[ "$()" ]')
-  Task('Users','Added user shaun', 3, '[ "$(grep shaun /etc/passwd)" ]')
-  #Files
-  Task('Files','Deleted music files in /home/alex/Downloads', 3, '[ "$()" ]')
-  Task('Files','Deleted list of passwords in /home/max', 3, '[ "$(grep passwords.txt /home/max)" ]')
+  	#Users
+  	Task('Users','Delete unauthorized users wes', 3, '[ ! "$(grep wes /etc/passwd)" ]')
+  	Task('Users','ayan is an authorized admin', 3, '[ "$(egrep adm|sudo /etc/group | grep ayan)" ]')
+  	Task('Users','owen is not an authorized admin', 3, '[ ! "$()" ]')
+  	Task('Users','Changed insecure password for landon', 3, '[ "$()" ]')
+ 	Task('Users','Gave brady a password', 3, '[ "$()" ]')
+ 	Task('Users','Added user ', 3, '[ "$(grep shaun /etc/passwd)" ]')
+  	#Files
+  	Task('Files','Deleted music files in /home/alex/Downloads', 3, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]')
+  	Task('Files','Deleted list of passwords in /home/max', 3, '[ "$(grep passwords.txt /home/max)" ]')
+  	#Pam
+	Task('PAM','Did common-password stuff', 5, '[ "$()" ]'),
+	Task('PAM','Did common-auth stuff', 5, '[ "$()" ]'),
+  	#Login.defs
+	Task('login.defs','Password age restrictions set', 5, '[ "$()" ]'),
+	Task('login.defs','MD5 disabled', 5, '[ "$()" ]'),
+	Task('login.defs','Proper SHA version used', 5, '[ "$()" ]'),
+  	#SSH
+	Task('SSH','ssh does not permit root login', 5, '[ "$(grep PermitRootLogin /etc/ssh/sshd_config | egrep no|No|NO)" ]'),
+	#Malware
+	Task('Malware','Remove game conqueror', 5, '[ "$(dpkg -l | grep conqueror)" ]'),
+	Task('Malware','Remove netcat', 5, '[ "$(dpkg -l | grep netcat)" ]'),
+	Task('Malware','Remove apache2', 5, '[ "$(dpkg -l | grep apache2)" ]'),
+	#UFW
+	Task('UFW','Uncomplicated Firewall is enabled', 5, '[ "$(service --status-all | grep ufw | grep +)" ]'),
 ]
 groups = [] #groups that must exist, or else a penalty
 #~~~~~~~~~~~~~~~CREATE THE WEBSITE/CALCULATE POINTS~~~~~~~~~~~~~#
