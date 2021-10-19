@@ -79,12 +79,12 @@ class Task:
 		else:
 			return False
 #~~~~~~~~~~~~~~~~~~~~~~THINGS TO SCORE~~~~~~~~~~~~~~~~~~~~~~~~~#
-users = [User(mainUser), User('jongun5') ] #If a user is deleted, you get a penalty
-services = [Service('apache2', 443)] #If a service is down, you get a penalty
+users = [User(mainUser), User('cyber') ] #If a user is deleted, you get a penalty
+services = [Service('sshd', 22)] #If a service is down, you get a penalty
 allTasks = [
   	#Forensics
 	Task('Forensics','Forensics 1', 5, '[ "$(grep /home/alex/Downloads/pretendthisismusic.mp3 /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
-	Task('Forensics','Forensics 2', 5, '[ "$(grep test /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
+	Task('Forensics','Forensics 2', 5, '[ "$(grep 37c570318db89c57745c31ed12af1da8 /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
   	#Users
   	Task('Users','Delete unauthorized users wes', 4, '[ ! "$(grep wes /etc/passwd)" ]')
   	Task('Users','ayan is an authorized admin', 4, '[ "$(egrep adm|sudo /etc/group | grep ayan)" ]')
