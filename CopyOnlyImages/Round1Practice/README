@@ -1,0 +1,36 @@
+
+ This company's security policies require that all user accounts be password protected. Employees are required to choose secure passwords, however this policy may not be currently enforced on this computer. The presence of any non-work related media files and "hacking tools" on any computers is strictly prohibited. This company currently does not use any centralized maintenance or polling tools to manage their IT equipment. This computer is for official business use only by authorized users.
+Ubuntu 18.04
+
+It is company policy to use only Ubuntu 18.04 on this computer. It is also company policy to use only the latest, official, stable Ubuntu 18.04 packages available for required software and services on this computer. Packages should be installed and managed by "apt".
+
+Management has decided that the default web browser for all users on this computer should be the latest stable version of Firefox. LibreOffice is the preferred software for everyday business use and it should also remain up-to-date. Company policy is to never let users log in as root. If administrators need to run commands as root, they are required to use the "sudo" command.
+
+Authorized users must be able to access this computer remotely using SSH.
+
+A new contractor named Eli was recently hired. Please create a user account for 'eli' at your earliest convenience.
+
+
+IMPORTANT INFORMATION
+
+
+Critical Services:
+
+Open-SSH
+
+Authorized Admins:
+
+cyber : cyber
+alex  : IrequireSl33p
+ayan  : H3lloI@mAyan:)
+shaun : weswhatdidyoudoyoubrokeit!!!
+
+Authorized Users:
+
+owen  : D0ntForgetSudoSu
+brady : 
+landon: landon
+max   : C00lguy5586(I am very cool)
+
+
+Itis1:16AMandIcannottakethisanymore
