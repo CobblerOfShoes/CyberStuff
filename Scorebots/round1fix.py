@@ -79,59 +79,40 @@ class Task:
 		else:
 			return False
 #~~~~~~~~~~~~~~~~~~~~~~THINGS TO SCORE~~~~~~~~~~~~~~~~~~~~~~~~~#
-users = [User(mainUser), User('shoeman'), User('aterry'), User('joneill')] #If a user is deleted, you get a penalty
-services = [Service('ssh',22), Service('apache2',80), Service('mysql',3306)] #If a service is down, you get a penalty
+users = [User(mainUser)] #If a user is deleted, you get a penalty
+services = [Service('sshd',22)] #If a service is down, you get a penalty
 allTasks = [
-		#0-50 for beginners, 50-75 for returners, 75-100 for advanced
-		#Forensics-Beginner
-	Task('Beginner','Beginner Forensics 1', 5, '[ "$(grep 66c307d3bcd35df04b7d913fcb8c39a4 /home/'+ mainUser + '/Desktop/ForensicsB1)" ]'),
-	Task('Beginner','Beginner Forensics 2', 5, '[ "$(grep /home/cyber/Downloads/potionseller.mp4 /home/'+ mainUser + '/Desktop/ForensicsB2)" ]'),
-		#Forensics-Returner
-	Task('Returner','Returner Forensics 1', 5, '[ "$(grep "This was a scam. I do not give points for being deleted. I am sorry for lying." /home/'+ mainUser + '/Desktop/ForensicsR1)" ]'),
-	Task('Returner','Returner Forensics 2', 5, '[ "$(grep "86c2629c-7a2d-44cd-914e-62d97c9b75b1" /home/'+ mainUser + '/Desktop/ForensicsR2)" ]'),
-		#Forensics-Advanced
-	Task('Advanced','Advanced Forensics 1', 5, '[ "$(grep "Trick question, last names are a fabricated social construct and do not actually exist." /home/'+ mainUser + '/Desktop/ForensicsA1)" ]'),
-	Task('Advanced','Advanced Forensics 2', 5, '[ "$(grep 5120 /home/'+ mainUser + '/Desktop/ForensicsA2)" ]'),
-	Task('Advanced','Halfway there! Say, Das M sounds like a cool name for a STEGosaurus', 0, '[ "$(egrep -e "Das M" -e "das m" /home/'+ mainUser + '/Desktop/ForensicsA1)" ]'),
-		#Users-Beginner
-	Task('Beginner','Removed unauthorized user erdie', 1, '[ ! "$(grep erdie /etc/passwd)" ]'), #! ##
-	Task('Beginner','Removed unauthorized admin rocky', 1, '[ ! "$(grep -e admin -e sudo /etc/group | grep rocky)" ]'), #!
-	Task('Beginner','Fixed insecure password for shoeman', 1, '[ ! "$(grep shoeman /etc/shadow | grep $6$qNRUkogj$ZcTXD9YJKcVEUIDNrik2VTuWpNC6w4ECTemhNXdcaGUYw6RpZRQPNqcB3twOtSjFF04J3Pis.6eoO6K.9NcRX1)" ]'), #!
-	Task('Beginner','Gave theguy a password', 1, '[ ! "$(grep theguy /etc/shadow | grep ::0)" ]'), #!
-	Task('Beginner','Added user greenie', 1, '[ "$(grep greenie /etc/passwd)" ]'), #!
-		#Users-Returner
-	Task('Returner','admn group does not have sudo access', 2, '[ ! "$(grep admn /etc/sudoers)" ]'), #!
-		#Users-Advanced
-		#Services-Beginner
-	Task('Beginner','Ubuntu updated to 18.04', 5, '[ "$(lsb_release -a | grep 18.04)" ]'), #!
-	Task('Beginner','ssh running on port 22', 3, '[ "$(grep 22 /etc/ssh/sshd_config)" ]'), #!
-	Task('Beginner','Removed samba', 3, '[ ! "$(dpkg -l | grep samba)" ]'), #!
-	Task('Beginner','Password complexity enforced', 3, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'), #!
-	Task('Beginner','ssh uses protocol 2', 3, '[ "$(grep protocol /etc/ssh/sshd_config | grep 2)" ]'), #!
-	Task('Beginner','ssh disables root login', 3, '[ "$(grep root /etc/ssh/sshd_config | grep NO)" ]'), #!
-	Task('Beginner','ufw enabled', 3, '[ ! "$(ufw status | grep inactive)" ]'), #!
-		#Services-Returner
-	Task('Returner','mySQL using correct port', 2, '[ "$(netstat -tulpn | grep 3306)" ]'), #!
-	Task('Returner','apache2 servertokens give minimal information', 2, '[ "$(grep "ServerTokens Prod" /etc/apache2/conf-available/security.conf)" ]'), #!
-		#Services-Advanced
-		#Malware-Beginner
-	Task('Beginner','Uninstalled netcat', 3, '[ ! "$(dpkg -l | grep netcat)" ]'), #!
-	Task('Beginner','Uninstalled nmap', 3, '[ ! "$(dpkg -l | grep nmap)" ]'), #!
-		#Malware-Returner
-	Task('Beginner','Removed funny crontab prank (you just walked the prank)(just pretend it was working)', 3, '[ ! "$(grep aterry /etc/crontab)" ]'), #!
-		#Malware-Advanced
-	Task('Advanced','Super ultra mega secret netcat backdoor (it now works!!!) removed', 5, '[ ! "$(grep netstat /root/.bashrc)" ]'), #! ##
-		#Files-Beginner
-	Task('Beginner','Removed insecure sudoers.d configuration', 3, '[ ! "$(grep NOPASSWD /etc/sudoers.d/README)" ]'), #! ##
-	Task('Beginner','Removed passwords file', 3, '[ ! "$(grep meadows /home/rocky/ThisFileDoesNotContainMyPassword.txt)" ]'), #!
-		#Files-Returner
-	Task('Returner','Fixed improper passwd permissions', 2, '[ "$(stat -c "%a %n" /etc/passwd | grep 644)" ]'), #!
-	Task('Returner','Fixed improper shadow permissions', 2, '[ "$(stat -c "%a %n" /etc/shadow | grep 600)" ]'), #!
-	Task('Returner','Removed credit card numbers from apache server', 2, '[ ! "$(grep 9 /var/www/html/money.txt)" ]'), #!
-	Task('Returner','IPV4 forwarding disabled', 2, '[ "$(grep "forward = 0" /etc/sysctl.conf)" ]'), #!
-		#Files-Advanced
-	Task('Advanced','Proper umask in root .bashrc', 5, '[ "$(grep umask /root/.profile | grep 022)" ]'), #!
-	Task('Advanced','Bad clear alias', 5, '[ ! "$(grep clear /root/.bashrc)" ]'), #!
+	#Forensics
+	Task('Forensics','Forensics 1', 5, '[ "$(grep /home/alex/Downloads/pretendthisismusic.mp3 /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
+	Task('Forensics','Forensics 2', 5, '[ "$(grep 37c570318db89c57745c31ed12af1da8 /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
+  	#Users
+  	Task('Users','Delete unauthorized users wes', 3, '[ ! "$(grep wes /etc/passwd)" ]')
+  	Task('Users','ayan is an authorized admin', 3, '[ "$(egrep adm|sudo /etc/group | grep ayan)" ]')
+  	Task('Users','owen is not an authorized admin', 3, '[ ! "$(grep -e adm -e sudo /etc/group | grep owen)" ]')
+  	Task('Users','Changed insecure password for landon', 3, '[ ! "$(grep "XD4SAtazLmK5r2k/lEuqjTqdOe7h9ONShQrBo.ALjcG7Vnw8bh1ehT.jjbZa.BhMp1KJjLMq/eUXGiys/V3a3/" /etc/shadow)" ]')
+ 	Task('Users','Gave brady a password', 3, '[ ! "$(grep "brady::18919:0:99999:7:::" /etc/shadow)" ]')
+ 	Task('Users','Added user eli', 5, '[ "$(grep eli /etc/passwd)" ]')
+	Task('Users','Root authentication requires a password', 5, '[ ! "$(grep NOPASSWD /etc/sudoers)" ]')
+  	#Files
+  	Task('Files','Deleted music files in /home/alex/Downloads', 5, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]')
+  	Task('Files','Deleted list of passwords in /home/max', 5, '[ ! "$(grep passwords.txt /home/max)" ]')
+  	#Pam
+	Task('PAM','Did common-password stuff', 5, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'),
+	Task('PAM','Did common-auth stuff', 5, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'),
+  	#Login.defs
+	Task('login.defs','Password age restrictions set', 5, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'),
+	Task('login.defs','MD5 disabled', 5, '[ "$(grep MD5_CRYPT_ENAB /etc/login.defs | grep no)" ]'),
+	Task('login.defs','Proper SHA version used', 5, '[ "$(grep "ENCRYPT_METHOD SHA256" /etc/login.defs)" ]'),
+  	#SSH
+	Task('SSH','ssh does not permit root login', 5, '[ "$(grep PermitRootLogin /etc/ssh/sshd_config | egrep no|No|NO)" ]'),
+	#Malware
+	Task('Malware','Remove freeciv', 5, '[ "$(dpkg -l | grep freeciv)" ]'),
+	Task('Malware','Remove netcat', 5, '[ "$(dpkg -l | grep netcat)" ]'),
+	Task('Malware','Remove apache2', 5, '[ "$(dpkg -l | grep apache2)" ]'),
+	#UFW
+	Task('UFW','Uncomplicated Firewall is enabled', 5, '[ "$(service --status-all | grep ufw | grep +)" ]'),
+	#lightdm
+	Task('lightdm','Guest user is disabled', 5, '[ "$(grep "allow-guest=false" /etc/lightdm/lightdm.conf)" ]')
 	]
 groups = [] #groups that must exist, or else a penalty
 #~~~~~~~~~~~~~~~CREATE THE WEBSITE/CALCULATE POINTS~~~~~~~~~~~~~#
