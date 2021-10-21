@@ -102,7 +102,7 @@ allTasks = [
   	#Login.defs
 	Task('Beginner','Password age restrictions set', 5, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'),
 	Task('Beginner','MD5 disabled', 5, '[ "$(grep MD5_CRYPT_ENAB /etc/login.defs | grep no)" ]'),
-	Task('Beginner','Proper SHA version used', 5, '[ "$(grep "ENCRYPT_METHOD SHA256" /etc/login.defs)" ]'),
+	Task('Beginner','Proper SHA version used', 5, '[ "$(grep "ENCRYPT_METHOD SHA512" /etc/login.defs)" ]'),
   	#SSH
 	Task('Beginner','ssh does not permit root login', 5, '[ "$(grep PermitRootLogin /etc/ssh/sshd_config | egrep "no|No|NO")" ]'),
 	#Malware
