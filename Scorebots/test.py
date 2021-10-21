@@ -87,8 +87,8 @@ allTasks = [
 	Task('Forensics','Forensics 2', 5, '[ "$(grep 37c570318db89c57745c31ed12af1da8 /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
   	#Users
   	Task('Beginner','Delete unauthorized users wes', 3, '[ ! "$(grep wes /etc/passwd)" ]'),
-  	Task('Users','ayan is an authorized admin', 3, '[ "$(grep sudo /etc/group | grep ayan)" ]'),
-  	Task('Beginner','owen is not an authorized admin', 3, '[ ! "$(grep sudo /etc/group | grep owen)" ]'),
+  	Task('Users','ayan is an authorized admin', 3, '[ "$(egrep "adm|sudo" /etc/group | grep ayan)" ]'),
+  	Task('Beginner','owen is not an authorized admin', 3, '[ ! "$(egrep "adm|sudo" /etc/group | grep owen)" ]'),
   	Task('Beginner','Changed insecure password for landon', 3, '[ ! "$(grep "XD4SAtazLmK5r2k/lEuqjTqdOe7h9ONShQrBo.ALjcG7Vnw8bh1ehT.jjbZa.BhMp1KJjLMq/eUXGiys/V3a3/" /etc/shadow)" ]'),
  	Task('Beginner','Gave brady a password', 3, '[ ! "$(grep "brady::18919:0:99999:7:::" /etc/shadow)" ]'),
  	Task('Beginner','Added user eli', 5, '[ "$(grep eli /etc/passwd)" ]'),
@@ -104,7 +104,7 @@ allTasks = [
 	Task('Beginner','MD5 disabled', 5, '[ "$(grep MD5_CRYPT_ENAB /etc/login.defs | grep no)" ]'),
 	Task('Beginner','Proper SHA version used', 5, '[ "$(grep "ENCRYPT_METHOD SHA256" /etc/login.defs)" ]'),
   	#SSH
-	Task('Beginner','ssh does not permit root login', 5, '[ "$(grep PermitRootLogin /etc/ssh/sshd_config | egrep no|No|NO)" ]'),
+	Task('Beginner','ssh does not permit root login', 5, '[ "$(grep PermitRootLogin /etc/ssh/sshd_config | egrep "no|No|NO")" ]'),
 	#Malware
 	Task('Beginner','Remove freeciv', 5, '[ "$(dpkg -l | grep freeciv)" ]'),
 	Task('Beginner','Remove netcat', 5, '[ "$(dpkg -l | grep netcat)" ]'),
