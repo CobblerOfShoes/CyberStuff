@@ -110,7 +110,7 @@ allTasks = [
 	Task('Beginner','Remove netcat', 5, '[ ! "$(dpkg -l | grep netcat)" ]'),
 	Task('Beginner','Remove apache2', 5, '[ ! "$(dpkg -l | grep apache2)" ]'),
 	#UFW
-	Task('Beginner','Uncomplicated Firewall is enabled', 5, '[ "$(service --status-all | grep ufw | grep +)" ]'),
+	Task('Beginner','Uncomplicated Firewall is enabled', 5, '[ "$(ufw status | grep active)" ]'),
 	#lightdm
 	Task('Beginner','Guest user is disabled', 5, '[ "$(grep "allow-guest=false" /etc/lightdm/lightdm.conf)" ]')
 	]
