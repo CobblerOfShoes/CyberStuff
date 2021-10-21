@@ -86,33 +86,33 @@ allTasks = [
 	Task('Forensics','Forensics 1', 5, '[ "$(grep /home/alex/Downloads/pretendthisismusic.mp3 /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
 	Task('Forensics','Forensics 2', 5, '[ "$(grep 37c570318db89c57745c31ed12af1da8 /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
   	#Users
-  	Task('Users','Delete unauthorized users wes', 3, '[ ! "$(grep wes /etc/passwd)" ]')
+  	Task('Beginner','Delete unauthorized users wes', 3, '[ ! "$(grep wes /etc/passwd)" ]')
   	#Task('Users','ayan is an authorized admin', 3, '[ "$(grep sudo /etc/group | grep ayan)" ]')
-  	Task('Users','owen is not an authorized admin', 3, '[ ! "$(grep sudo /etc/group | grep owen)" ]')
-  	Task('Users','Changed insecure password for landon', 3, '[ ! "$(grep "XD4SAtazLmK5r2k/lEuqjTqdOe7h9ONShQrBo.ALjcG7Vnw8bh1ehT.jjbZa.BhMp1KJjLMq/eUXGiys/V3a3/" /etc/shadow)" ]')
- 	Task('Users','Gave brady a password', 3, '[ ! "$(grep "brady::18919:0:99999:7:::" /etc/shadow)" ]')
- 	Task('Users','Added user eli', 5, '[ "$(grep eli /etc/passwd)" ]')
-	Task('Users','Root authentication requires a password', 5, '[ ! "$(grep NOPASSWD /etc/sudoers)" ]')
+  	Task('Beginner','owen is not an authorized admin', 3, '[ ! "$(grep sudo /etc/group | grep owen)" ]')
+  	Task('Beginner','Changed insecure password for landon', 3, '[ ! "$(grep "XD4SAtazLmK5r2k/lEuqjTqdOe7h9ONShQrBo.ALjcG7Vnw8bh1ehT.jjbZa.BhMp1KJjLMq/eUXGiys/V3a3/" /etc/shadow)" ]')
+ 	Task('Beginner','Gave brady a password', 3, '[ ! "$(grep "brady::18919:0:99999:7:::" /etc/shadow)" ]')
+ 	Task('Beginner','Added user eli', 5, '[ "$(grep eli /etc/passwd)" ]')
+	Task('Beginner','Root authentication requires a password', 5, '[ ! "$(grep NOPASSWD /etc/sudoers)" ]')
   	#Files
-  	Task('Files','Deleted music files in /home/alex/Downloads', 5, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]')
-  	Task('Files','Deleted list of passwords in /home/max', 5, '[ ! "$(grep passwords.txt /home/max)" ]')
+  	Task('Beginner','Deleted music files in /home/alex/Downloads', 5, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]')
+  	Task('Beginner','Deleted list of passwords in /home/max', 5, '[ ! "$(grep passwords.txt /home/max)" ]')
   	#Pam
-	Task('PAM','Did common-password stuff', 5, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'),
-	Task('PAM','Did common-auth stuff', 5, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'),
+	Task('Beginner','Did common-password stuff', 5, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'),
+	Task('Beginner','Did common-auth stuff', 5, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'),
   	#Login.defs
-	Task('login.defs','Password age restrictions set', 5, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'),
-	Task('login.defs','MD5 disabled', 5, '[ "$(grep MD5_CRYPT_ENAB /etc/login.defs | grep no)" ]'),
-	Task('login.defs','Proper SHA version used', 5, '[ "$(grep "ENCRYPT_METHOD SHA256" /etc/login.defs)" ]'),
+	Task('Beginner','Password age restrictions set', 5, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'),
+	Task('Beginner','MD5 disabled', 5, '[ "$(grep MD5_CRYPT_ENAB /etc/login.defs | grep no)" ]'),
+	Task('Beginner','Proper SHA version used', 5, '[ "$(grep "ENCRYPT_METHOD SHA256" /etc/login.defs)" ]'),
   	#SSH
-	Task('SSH','ssh does not permit root login', 5, '[ "$(grep PermitRootLogin /etc/ssh/sshd_config | egrep no|No|NO)" ]'),
+	Task('Beginner','ssh does not permit root login', 5, '[ "$(grep PermitRootLogin /etc/ssh/sshd_config | egrep no|No|NO)" ]'),
 	#Malware
-	Task('Malware','Remove freeciv', 5, '[ "$(dpkg -l | grep freeciv)" ]'),
-	Task('Malware','Remove netcat', 5, '[ "$(dpkg -l | grep netcat)" ]'),
-	Task('Malware','Remove apache2', 5, '[ "$(dpkg -l | grep apache2)" ]'),
+	Task('Beginner','Remove freeciv', 5, '[ "$(dpkg -l | grep freeciv)" ]'),
+	Task('Beginner','Remove netcat', 5, '[ "$(dpkg -l | grep netcat)" ]'),
+	Task('Beginner','Remove apache2', 5, '[ "$(dpkg -l | grep apache2)" ]'),
 	#UFW
-	Task('UFW','Uncomplicated Firewall is enabled', 5, '[ "$(service --status-all | grep ufw | grep +)" ]'),
+	Task('Beginner','Uncomplicated Firewall is enabled', 5, '[ "$(service --status-all | grep ufw | grep +)" ]'),
 	#lightdm
-	Task('lightdm','Guest user is disabled', 5, '[ "$(grep "allow-guest=false" /etc/lightdm/lightdm.conf)" ]')
+	Task('Beginner','Guest user is disabled', 5, '[ "$(grep "allow-guest=false" /etc/lightdm/lightdm.conf)" ]')
 	]
 groups = [] #groups that must exist, or else a penalty
 #~~~~~~~~~~~~~~~CREATE THE WEBSITE/CALCULATE POINTS~~~~~~~~~~~~~#
