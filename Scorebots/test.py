@@ -94,8 +94,8 @@ allTasks = [
  	Task('Beginner','Added user eli', 5, '[ "$(grep eli /etc/passwd)" ]'),
 	Task('Beginner','Root authentication requires a password', 5, '[ ! "$(grep NOPASSWD /etc/sudoers)" ]'),
   	#Files
-  	Task('Beginner','Deleted music files in /home/alex/Downloads', 5, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]')
-  	Task('Beginner','Deleted list of passwords in /home/max', 5, '[ ! "$(grep passwords.txt /home/max)" ]')
+  	Task('Beginner','Deleted music files in /home/alex/Downloads', 5, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]'),
+  	Task('Beginner','Deleted list of passwords in /home/max', 5, '[ ! "$(grep "passwords.txt" /home/max)" ]'),
   	#Pam
 	Task('Beginner','Did common-password stuff', 5, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'),
 	Task('Beginner','Did common-auth stuff', 5, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'),
