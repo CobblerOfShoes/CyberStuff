@@ -87,7 +87,7 @@ allTasks = [
 	Task('Forensics','Forensics 2', 5, '[ "$(grep 37c570318db89c57745c31ed12af1da8 /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
   	#Users
   	Task('Users','Delete unauthorized users wes', 3, '[ ! "$(grep wes /etc/passwd)" ]')
-  	Task('Users','ayan is an authorized admin', 3, '[ "$(grep sudo /etc/group | grep ayan)" ]')
+  	#Task('Users','ayan is an authorized admin', 3, '[ "$(grep sudo /etc/group | grep ayan)" ]')
   	Task('Users','owen is not an authorized admin', 3, '[ ! "$(grep sudo /etc/group | grep owen)" ]')
   	Task('Users','Changed insecure password for landon', 3, '[ ! "$(grep "XD4SAtazLmK5r2k/lEuqjTqdOe7h9ONShQrBo.ALjcG7Vnw8bh1ehT.jjbZa.BhMp1KJjLMq/eUXGiys/V3a3/" /etc/shadow)" ]')
  	Task('Users','Gave brady a password', 3, '[ ! "$(grep "brady::18919:0:99999:7:::" /etc/shadow)" ]')
