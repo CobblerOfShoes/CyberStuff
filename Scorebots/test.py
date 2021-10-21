@@ -95,7 +95,7 @@ allTasks = [
 	Task('Beginner','Root authentication requires a password', 5, '[ ! "$(grep NOPASSWD /etc/sudoers)" ]'),
   	#Files
   	Task('Beginner','Deleted music files in /home/alex/Downloads', 5, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]'),
-  	Task('Beginner','Deleted list of passwords in /home/max', 5, '[ ! "$(grep "passwords.txt" /home/max)" ]'),
+  	Task('Beginner','Deleted list of passwords in /home/max', 5, '[ ! "$(ls /home/max | grep "passwords.txt" )" ]'),
   	#Pam
 	Task('Beginner','Did common-password stuff', 5, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'),
 	Task('Beginner','Did common-auth stuff', 5, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'),
@@ -106,9 +106,9 @@ allTasks = [
   	#SSH
 	Task('Beginner','ssh does not permit root login', 5, '[ "$(grep PermitRootLogin /etc/ssh/sshd_config | egrep "no|No|NO")" ]'),
 	#Malware
-	Task('Beginner','Remove freeciv', 5, '[ "$(dpkg -l | grep freeciv)" ]'),
-	Task('Beginner','Remove netcat', 5, '[ "$(dpkg -l | grep netcat)" ]'),
-	Task('Beginner','Remove apache2', 5, '[ "$(dpkg -l | grep apache2)" ]'),
+	Task('Beginner','Remove freeciv', 5, '[ ! "$(dpkg -l | grep freeciv)" ]'),
+	Task('Beginner','Remove netcat', 5, '[ ! "$(dpkg -l | grep netcat)" ]'),
+	Task('Beginner','Remove apache2', 5, '[ ! "$(dpkg -l | grep apache2)" ]'),
 	#UFW
 	Task('Beginner','Uncomplicated Firewall is enabled', 5, '[ "$(service --status-all | grep ufw | grep +)" ]'),
 	#lightdm
