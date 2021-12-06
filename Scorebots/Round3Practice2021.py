@@ -83,36 +83,36 @@ users = [User(mainUser)] #If a user is deleted, you get a penalty
 services = [Service('samba',22)] #If a service is down, you get a penalty
 allTasks = [
 		#Forensics
-	Task('Forensics','Forensics 1', 5, '[ "$(grep /home/alex/Downloads/pretendthisismusic.mp3 /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
-	Task('Forensics','Forensics 2', 5, '[ "$(grep 37c570318db89c57745c31ed12af1da8 /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
-	Task('Forensics','Forensics 3', 5, '[ "$(grep 37c570318db89c57745c31ed12af1da8 /home/'+ mainUser + '/Desktop/Forensics3)" ]'),
+	Task('Forensics','Forensics 1', 7, '[ "$(grep  /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
+	Task('Forensics','Forensics 2', 7, '[ "$(grep  /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
+	Task('Forensics','Forensics 3', 7, '[ "$(grep  /home/'+ mainUser + '/Desktop/Forensics3)" ]'),
   		#Users
  	Task('Beginner','Delete unauthorized user police', 1, '[ ! "$(grep police /etc/passwd)" ]'), #test
-  	Task('Beginner',' is an authorized admin', 1, '[ "$(egrep "adm|sudo" /etc/group | grep ayan)" ]'),
+  	Task('Beginner','tim is an authorized admin', 1, '[ "$(egrep "adm|sudo" /etc/group | grep ayan)" ]'),
   	Task('Beginner','gambo needs a password to login', 1, '[ ! "$(grep "nopasswordlogin" /etc/group | grep gambo)" ]'),
   	Task('Beginner','Changed insecure password for landon', 3, '[ ! "$(grep "XD4SAtazLmK5r2k/lEuqjTqdOe7h9ONShQrBo.ALjcG7Vnw8bh1ehT.jjbZa.BhMp1KJjLMq/eUXGiys/V3a3/" /etc/shadow)" ]'),
  	Task('Beginner','Gave brady a password', 3, '[ ! "$(grep "brady::18919:0:99999:7:::" /etc/shadow)" ]'),
- 	Task('Beginner','Added user eli', 5, '[ "$(grep eli /etc/passwd)" ]'),
 	Task('Beginner','Root authentication requires a password', 2, '[ ! "$(grep NOPASSWD /etc/sudoer.d/joebiden)" ]'),
   		#Files
-  	Task('Beginner','Deleted music files in /home/alex/Downloads', 5, '[ ! "$(ls /home/alex/Downloads | grep pretendthisismusic.mp3)" ]'),
-  	Task('Beginner','Deleted list of passwords in /home/max', 5, '[ ! "$(ls /home/max | grep "passwords.txt" )" ]'),
+  	Task('Beginner','Deleted john zip file in root home folder', 5, '[ ! "$(ls /root | grep john)" ]'),
+  	Task('Beginner','Deleted list of passwords in root directory', 5, '[ ! "$(ls / | grep "passwords.txt" )" ]'),
   		#Pam
 	Task('Beginner','Did common-password stuff', 1, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'),
 	Task('Beginner','Did common-auth stuff', 1, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'),
   		#Login.defs
 	Task('Beginner','Password age restrictions set', 1, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'),
   		#Samba
-	Task('Beginner','ssh does not permit root login', 5, '[ "$(grep PermitRootLogin /etc/ssh/sshd_config | egrep "no|No|NO")" ]'),
+	Task('Beginner','Samba is running on the correct port', 2, '[ "$(netstat -tulpn | grep 445)" ]'), #test
+	Task('Returner','smb.conf has secure file permissions', 2, '[ "$(stat -c %a /etc/samba/smb.comf | grep 640)" ]'), #test
 		#Malware
-	Task('Beginner','Remove freeciv', 5, '[ ! "$(dpkg -l | grep freeciv)" ]'),
-	Task('Beginner','Remove netcat', 5, '[ ! "$(dpkg -l | grep netcat)" ]'),
-	Task('Beginner','Remove apache2', 5, '[ ! "$(dpkg -l | grep apache2)" ]'),
+	Task('Beginner','Remove xhydra', 3, '[ ! "$(dpkg -l | grep xhydra)" ]'), #test
+	Task('Beginner','Remove netcat', 3, '[ ! "$(dpkg -l | grep netcat)" ]'),
+	Task('Beginner','Remove apache2', 3, '[ ! "$(dpkg -l | grep apache2)" ]'),
 		#UFW
-	Task('Beginner','Uncomplicated Firewall is enabled', 1, '[ "$(ufw status | grep active)" ]'),
+	Task('Beginner','Uncomplicated Firewall is enabled', 1, '[ "$(ufw status | grep active)" ]'), #test
 	Task('Advance','Uncomplicated Firewall init file is executable', 1, '[ "$(stat -c %a /etc/init.d/ufw | grep 755)" ]'), #test
 		#lightdm
-	Task('Beginner','Guest user is disabled', 5, '[ "$(grep "allow-guest=false" /etc/lightdm/lightdm.conf)" ]')
+	Task('Beginner','Guest user is disabled', 5, '[ "$(grep "allow-guest=false" /etc/lightdm/lightdm.conf)" ]') #test
 	]
 groups = [] #groups that must exist, or else a penalty
 #~~~~~~~~~~~~~~~CREATE THE WEBSITE/CALCULATE POINTS~~~~~~~~~~~~~#
