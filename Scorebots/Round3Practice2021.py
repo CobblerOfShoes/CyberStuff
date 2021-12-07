@@ -112,7 +112,7 @@ allTasks = [
 	Task('Returner','Removed kismet', 3, '[ ! "$(dpkg -l | grep kismet)" ]'), #test
 	Task('Returner','Removed DHCP server', 3, '[ ! "$(dpkg -l | grep dhcp-server)" ]'), #test
 		#UFW
-	Task('Beginner','Uncomplicated Firewall is enabled', 1, '[ "$(ufw status | grep active)" ]'), #test
+	Task('Beginner','Uncomplicated Firewall is enabled', 1, '[ ! "$(ufw status | grep inactive)" ]'), #test
 	Task('Returner','UFW does not deny incoming samba traffic', 3, '[ ! "$(grep dport /etc/ufw/after.rules)" ]'), #test
 	Task('Advance','UFW init file is executable', 5, '[ "$(stat -c %a /etc/init.d/ufw | grep 755)" ]'), #test
 		#Sysctl
