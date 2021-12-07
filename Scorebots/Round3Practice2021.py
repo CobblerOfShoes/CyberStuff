@@ -83,19 +83,19 @@ users = [User(mainUser)] #If a user is deleted, you get a penalty
 services = [Service('samba',22)] #If a service is down, you get a penalty
 allTasks = [
 		#Forensics
-	Task('Forensics','Forensics 1', 7, '[ "$(grep  /home/'+ mainUser + '/Desktop/Forensics1)" ]'),
-	Task('Forensics','Forensics 2', 7, '[ "$(grep  /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
+	Task('Forensics','Forensics 1', 7, '[ "$(grep "d, e" /home/'+ mainUser + '/Desktop/Forensics1)" ]'), #test #/usr/bin/lsattr not executable
+	Task('Forensics','Forensics 2', 7, '[ "$(grep 2022 /home/'+ mainUser + '/Desktop/Forensics2)" ]'), #test #bad alias for chattr
 	Task('Forensics','Forensics 3', 7, '[ "$(grep  /home/'+ mainUser + '/Desktop/Forensics3)" ]'),
   		#Users
  	Task('Beginner','Delete unauthorized user police', 1, '[ ! "$(grep police /etc/passwd)" ]'), #test
-  	Task('Beginner','tim is an authorized admin', 1, '[ "$(egrep "adm|sudo" /etc/group | grep ayan)" ]'),
-  	Task('Beginner','gambo needs a password to login', 1, '[ ! "$(grep "nopasswordlogin" /etc/group | grep gambo)" ]'),
-  	Task('Beginner','Changed insecure password for landon', 3, '[ ! "$(grep "XD4SAtazLmK5r2k/lEuqjTqdOe7h9ONShQrBo.ALjcG7Vnw8bh1ehT.jjbZa.BhMp1KJjLMq/eUXGiys/V3a3/" /etc/shadow)" ]'),
- 	Task('Beginner','Gave brady a password', 3, '[ ! "$(grep "brady::18919:0:99999:7:::" /etc/shadow)" ]'),
-	Task('Beginner','Root authentication requires a password', 2, '[ ! "$(grep NOPASSWD /etc/sudoer.d/joebiden)" ]'),
+  	Task('Beginner','tim is an authorized admin', 1, '[ "$(egrep "adm|sudo" /etc/group | grep ayan)" ]'), #test
+  	Task('Beginner','gambo needs to enter password on login', 1, '[ ! "$(grep "nopasswordlogin" /etc/group | grep gambo)" ]'), #test
+  	Task('Beginner','removed secondary root user toor', 3, '[ ! "$(grep toor /etc/shadow)" ]'), #test
+ 	Task('Returner','mail user does not have a shell', 3, '[ "$(grep mail /etc/shadow | grep /usr/sbin/nologin)" ]'),
+	Task('Returner','Root authentication requires a password', 2, '[ ! "$(grep NOPASSWD /etc/sudoer.d/joebiden)" ]'),
   		#Files
-  	Task('Beginner','Deleted john zip file in root home folder', 5, '[ ! "$(ls /root | grep john)" ]'),
-  	Task('Beginner','Deleted list of passwords in root directory', 5, '[ ! "$(ls / | grep "passwords.txt" )" ]'),
+  	Task('Beginner','Deleted john zip file in root home folder', 5, '[ ! "$(ls /root | grep john)" ]'), #test
+  	Task('Beginner','Deleted list of passwords in root directory', 5, '[ ! "$(ls / | grep "passwords.txt" )" ]'), #test
   		#Pam
 	Task('Beginner','Did common-password stuff', 1, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'),
 	Task('Beginner','Did common-auth stuff', 1, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'),
@@ -105,9 +105,10 @@ allTasks = [
 	Task('Beginner','Samba is running on the correct port', 2, '[ "$(netstat -tulpn | grep 445)" ]'), #test
 	Task('Returner','smb.conf has secure file permissions', 2, '[ "$(stat -c %a /etc/samba/smb.comf | grep 640)" ]'), #test
 		#Malware
-	Task('Beginner','Remove xhydra', 3, '[ ! "$(dpkg -l | grep xhydra)" ]'), #test
-	Task('Beginner','Remove netcat', 3, '[ ! "$(dpkg -l | grep netcat)" ]'),
-	Task('Beginner','Remove apache2', 3, '[ ! "$(dpkg -l | grep apache2)" ]'),
+	Task('Returner','Removed john', 3, '[ ! "$(dpkg -l | grep kismet)" ]'), #test
+	Task('Returner','Removed discord token grabber', 3, '[ ! "$(ls /bin | grep josephstalin)" ]'), #test
+	Task('Returner','Removed kismet', 3, '[ ! "$(dpkg -l | grep kismet)" ]'),
+	Task('Returner','Removed DHCP server', 3, '[ ! "$(dpkg -l | grep dhcp)" ]'),
 		#UFW
 	Task('Beginner','Uncomplicated Firewall is enabled', 1, '[ "$(ufw status | grep active)" ]'), #test
 	Task('Advance','Uncomplicated Firewall init file is executable', 1, '[ "$(stat -c %a /etc/init.d/ufw | grep 755)" ]'), #test
