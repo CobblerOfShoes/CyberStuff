@@ -103,7 +103,7 @@ allTasks = [
 	Task('Beginner','Password age restrictions set', 1, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'), #test
   		#Samba
 	Task('Returner','Malicious symlink removed from samba printer share', 2, '[ ! "$(ls -a /var/spool/samba | grep ...)" ]'), #test
-	Task('Returner','Samba log files are collected', 2, '[ "$(grep "/dev/null" /etc/samba/smb.conf)" ]'), #test
+	Task('Returner','Samba log files are collected', 2, '[ ! "$(grep "/dev/null" /etc/samba/smb.conf)" ]'), #test
 	Task('Returner','smb.conf has secure file permissions', 2, '[ "$(stat -c %a /etc/samba/smb.comf | grep 640)" ]'), #test
 	Task('Returner','Samba share only accessible on internal network', 2, '[ "$(grep "bind interfaces" /etc/samba/smb.conf | grep yes)" ]'), #test
 		#Malware
