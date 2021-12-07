@@ -85,7 +85,7 @@ allTasks = [
 		#Forensics
 	Task('Forensics','Forensics 1', 7, '[ "$(grep "d, e" /home/'+ mainUser + '/Desktop/Forensics1)" ]'), #test #/usr/bin/lsattr not executable
 	Task('Forensics','Forensics 2', 7, '[ "$(grep 2022 /home/'+ mainUser + '/Desktop/Forensics2)" ]'), #test #bad alias for chattr
-	Task('Forensics','Forensics 3', 7, '[ "$(grep  /home/'+ mainUser + '/Desktop/Forensics3)" ]'),
+	Task('Forensics','Forensics 3', 7, '[ "$(grep "/var/spool/cron/crontabs" /home/'+ mainUser + '/Desktop/Forensics3)" ]'),
   		#Users
  	Task('Beginner','Delete unauthorized user police', 1, '[ ! "$(grep police /etc/passwd)" ]'), #test
   	Task('Beginner','tim is an authorized admin', 1, '[ "$(egrep "adm|sudo" /etc/group | grep ayan)" ]'), #test
@@ -95,13 +95,16 @@ allTasks = [
 	Task('Returner','Root authentication requires a password', 2, '[ ! "$(grep NOPASSWD /etc/sudoer.d/joebiden)" ]'),
   		#Files
   	Task('Returner','Deleted list of passwords in root directory', 3, '[ ! "$(ls -a /root | grep ".var" )" ]'), #test
+	Task('Returner','Installed xcowsay', 3, '[ "$(dpkg -l | grep xcowsay)" ]'), #test
+	Task('Returner','Removed libreoffice', 3, '[ ! "$(dpkg -l | grep libreoffice)" ]'), #test
   		#Pam
 	Task('Beginner','Did common-password stuff', 1, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'), #test
 	Task('Beginner','Did common-auth stuff', 1, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'), #test
   		#Login.defs
 	Task('Beginner','Password age restrictions set', 1, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'), #test
   		#Samba
-	Task('Beginner','Samba is running on the correct port', 2, '[ "$(netstat -tulpn | grep 445)" ]'), #test
+	Task('Returner','Malicious symlink removed from samba printer share', 2, '[ ! "$(ls -a /var/spool/samba | grep ...)" ]'), #test
+	Task('Returner','Samba log files are collected', 2, '[ "$(grep "/dev/null" /etc/samba/smb.conf)" ]'), #test
 	Task('Returner','smb.conf has secure file permissions', 2, '[ "$(stat -c %a /etc/samba/smb.comf | grep 640)" ]'), #test
 	Task('Returner','Samba share only accessible on internal network', 2, '[ "$(grep "bind interfaces" /etc/samba/smb.conf | grep yes)" ]'), #test
 		#Malware
