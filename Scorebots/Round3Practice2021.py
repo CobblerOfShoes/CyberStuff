@@ -94,26 +94,30 @@ allTasks = [
  	Task('Returner','mail user does not have a shell', 3, '[ "$(grep mail /etc/shadow | grep /usr/sbin/nologin)" ]'),
 	Task('Returner','Root authentication requires a password', 2, '[ ! "$(grep NOPASSWD /etc/sudoer.d/joebiden)" ]'),
   		#Files
-  	Task('Beginner','Deleted john zip file in root home folder', 5, '[ ! "$(ls /root | grep john)" ]'), #test
-  	Task('Beginner','Deleted list of passwords in root directory', 5, '[ ! "$(ls / | grep "passwords.txt" )" ]'), #test
+  	Task('Returner','Deleted list of passwords in root directory', 3, '[ ! "$(ls -a /root | grep ".var" )" ]'), #test
   		#Pam
-	Task('Beginner','Did common-password stuff', 1, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'),
-	Task('Beginner','Did common-auth stuff', 1, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'),
+	Task('Beginner','Did common-password stuff', 1, '[ "$(grep "minlen=8" /etc/pam.d/common-password)" ]'), #test
+	Task('Beginner','Did common-auth stuff', 1, '[ "$(grep "deny=5" /etc/pam.d/common-auth)" ]'), #test
   		#Login.defs
-	Task('Beginner','Password age restrictions set', 1, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'),
+	Task('Beginner','Password age restrictions set', 1, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'), #test
   		#Samba
 	Task('Beginner','Samba is running on the correct port', 2, '[ "$(netstat -tulpn | grep 445)" ]'), #test
 	Task('Returner','smb.conf has secure file permissions', 2, '[ "$(stat -c %a /etc/samba/smb.comf | grep 640)" ]'), #test
+	Task('Returner','Samba share only accessible on internal network', 2, '[ "$(grep "bind interfaces" /etc/samba/smb.conf | grep yes)" ]'), #test
 		#Malware
 	Task('Returner','Removed john', 3, '[ ! "$(dpkg -l | grep kismet)" ]'), #test
 	Task('Returner','Removed discord token grabber', 3, '[ ! "$(ls /bin | grep josephstalin)" ]'), #test
-	Task('Returner','Removed kismet', 3, '[ ! "$(dpkg -l | grep kismet)" ]'),
-	Task('Returner','Removed DHCP server', 3, '[ ! "$(dpkg -l | grep dhcp)" ]'),
+	Task('Returner','Removed kismet', 3, '[ ! "$(dpkg -l | grep kismet)" ]'), #test
+	Task('Returner','Removed DHCP server', 3, '[ ! "$(dpkg -l | grep dhcp-server)" ]'), #test
 		#UFW
 	Task('Beginner','Uncomplicated Firewall is enabled', 1, '[ "$(ufw status | grep active)" ]'), #test
-	Task('Advance','Uncomplicated Firewall init file is executable', 1, '[ "$(stat -c %a /etc/init.d/ufw | grep 755)" ]'), #test
+	Task('Returner','UFW does not deny incoming samba traffic', 3, '[ ! "$(ufw status verbose | grep Samba | grep DENY)" ]'), #test
+	Task('Advance','UFW init file is executable', 5, '[ "$(stat -c %a /etc/init.d/ufw | grep 755)" ]'), #test
+		#Sysctl
+	Task('Returner','IPV4 TCP/IP SYN cookies enabled', 3, '[ "$(grep net.ipv4.tcp_syncookies=1 /etc/sysctl.conf)" ]'), #test
+	Task('Returner','IPV4 ICMP redirets disabled', 3, '[ "$(grep "net.ipv4.conf.all.accept_redirects = 0"/etc/sysctl.conf)" ]'), #test
+	Task('Returner','IPV4 logging of martian packets enabled', 3, '[ "$(grep "net.ipv4.conf.all.log_martians = 0" /etc/sysctl.conf)" ]'), #test
 		#lightdm
-	Task('Beginner','Guest user is disabled', 5, '[ "$(grep "allow-guest=false" /etc/lightdm/lightdm.conf)" ]') #test
 	]
 groups = [] #groups that must exist, or else a penalty
 #~~~~~~~~~~~~~~~CREATE THE WEBSITE/CALCULATE POINTS~~~~~~~~~~~~~#
