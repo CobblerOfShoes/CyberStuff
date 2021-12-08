@@ -83,13 +83,13 @@ users = [User(mainUser)] #If a user is deleted, you get a penalty
 services = [Service('samba',22)] #If a service is down, you get a penalty
 allTasks = [
 		#Forensics
-	Task('Forensics','Forensics 1', 7, '[ "$(grep ANSWER /home/'+ mainUser + '/Desktop/Forensics1 | grep e)" ]'), #test #/usr/bin/lsattr not executable
-	Task('Forensics','Forensics 2', 7, '[ "$(grep 2022 /home/'+ mainUser + '/Desktop/Forensics2)" ]'), #test #bad alias for chattr
+	Task('Forensics','Forensics 1', 7, '[ "$(grep ANSWER /home/'+ mainUser + '/Desktop/Forensics1 | grep e)" ]'),
+	Task('Forensics','Forensics 2', 7, '[ "$(grep 2022 /home/'+ mainUser + '/Desktop/Forensics2)" ]'),
 	Task('Forensics','Forensics 3', 7, '[ "$(grep "/var/spool/cron/crontabs" /home/'+ mainUser + '/Desktop/Forensics3)" ]'),
   		#Users
- 	Task('Beginner','Delete unauthorized user police', 1, '[ ! "$(grep police /etc/passwd)" ]'), #test
-  	Task('Beginner','tim is an authorized admin', 1, '[ "$(egrep "adm|sudo" /etc/group | grep ayan)" ]'), #test
-  	Task('Beginner','removed secondary root user toor', 3, '[ ! "$(grep toor /etc/shadow)" ]'), #test
+ 	Task('Beginner','Delete unauthorized user police', 1, '[ ! "$(grep police /etc/passwd)" ]'),
+  	Task('Beginner','tim is an authorized admin', 1, '[ "$(egrep "adm|sudo" /etc/group | grep ayan)" ]'),
+  	Task('Beginner','removed secondary root user toor', 3, '[ ! "$(grep toor /etc/shadow)" ]'),
  	Task('Returner','mail user does not have a shell', 3, '[ "$(grep mail /etc/shadow | grep /usr/sbin/nologin)" ]'),
 	Task('Returner','Root authentication requires a password', 2, '[ ! "$(grep NOPASSWD /etc/sudoer.d/joebiden)" ]'),
   		#Files
@@ -102,12 +102,12 @@ allTasks = [
   		#Login.defs
 	Task('Beginner','Password age restrictions set', 1, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'), #test
   		#Samba
-	Task('Returner','Malicious symlink removed from samba printer share', 2, '[ ! "$(ls -a /var/spool/samba | grep ...)" ]'), #test
-	Task('Returner','Samba log files are collected', 2, '[ ! "$(grep "/dev/null" /etc/samba/smb.conf)" ]'), #test
-	Task('Returner','smb.conf has secure file permissions', 2, '[ "$(stat -c %a /etc/samba/smb.comf | grep 640)" ]'), #test
-	Task('Returner','Samba share only accessible on internal network', 2, '[ "$(grep "bind interfaces" /etc/samba/smb.conf | grep yes)" ]'), #test
+	Task('Returner','Malicious symlink removed from samba printer share', 2, '[ ! "$(ls -a /var/spool/samba | grep "\.\.\.")" ]'),
+	Task('Returner','Samba log files are collected', 2, '[ ! "$(grep "/dev/null" /etc/samba/smb.conf)" ]'),
+	Task('Returner','smb.conf has secure file permissions', 2, '[ "$(stat -c %a /etc/samba/smb.conf | grep 640)" ]'),
+	Task('Returner','Samba share only accessible on internal network', 2, '[ "$(grep "bind interfaces" /etc/samba/smb.conf | grep yes)" ]'),
 		#Malware
-	Task('Returner','Removed john', 3, '[ ! "$(dpkg -l | grep kismet)" ]'), #test
+	Task('Returner','Removed john', 3, '[ ! "$(dpkg -l | grep john)" ]'), #test
 	Task('Returner','Removed discord token grabber', 3, '[ ! "$(ls /bin | grep josephstalin)" ]'), #test
 	Task('Returner','Removed kismet', 3, '[ ! "$(dpkg -l | grep kismet)" ]'), #test
 	Task('Returner','Removed DHCP server', 3, '[ ! "$(dpkg -l | grep dhcp-server)" ]'), #test
