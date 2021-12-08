@@ -83,7 +83,7 @@ users = [User(mainUser)] #If a user is deleted, you get a penalty
 services = [Service('samba',22)] #If a service is down, you get a penalty
 allTasks = [
 		#Forensics
-	Task('Forensics','Forensics 1', 7, '[ "$(grep "d, e" /home/'+ mainUser + '/Desktop/Forensics1)" ]'), #test #/usr/bin/lsattr not executable
+	Task('Forensics','Forensics 1', 7, '[ "$(grep ANSWER /home/'+ mainUser + '/Desktop/Forensics1 | grep e)" ]'), #test #/usr/bin/lsattr not executable
 	Task('Forensics','Forensics 2', 7, '[ "$(grep 2022 /home/'+ mainUser + '/Desktop/Forensics2)" ]'), #test #bad alias for chattr
 	Task('Forensics','Forensics 3', 7, '[ "$(grep "/var/spool/cron/crontabs" /home/'+ mainUser + '/Desktop/Forensics3)" ]'),
   		#Users
