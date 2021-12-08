@@ -88,7 +88,7 @@ allTasks = [
 	Task('Forensics','Forensics 3', 7, '[ "$(grep "/var/spool/cron/crontabs" /home/'+ mainUser + '/Desktop/Forensics3)" ]'),
   		#Users
  	Task('Beginner','Delete unauthorized user police', 1, '[ ! "$(grep police /etc/passwd)" ]'),
-  	Task('Beginner','tim is an authorized admin', 1, '[ "$(egrep "adm|sudo" /etc/group | grep ayan)" ]'),
+  	Task('Beginner','tim is an authorized admin', 1, '[ "$(egrep "adm|sudo" /etc/group | grep tim)" ]'),
   	Task('Beginner','removed secondary root user toor', 3, '[ ! "$(grep toor /etc/shadow)" ]'),
  	Task('Returner','mail user does not have a shell', 3, '[ "$(grep mail /etc/shadow | grep /usr/sbin/nologin)" ]'),
 	Task('Returner','Root authentication requires a password', 2, '[ ! "$(grep NOPASSWD /etc/sudoer.d/joebiden)" ]'),
