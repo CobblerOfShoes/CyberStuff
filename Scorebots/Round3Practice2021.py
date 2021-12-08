@@ -116,9 +116,9 @@ allTasks = [
 	Task('Returner','UFW does not deny incoming samba traffic', 3, '[ ! "$(grep dport /etc/ufw/after.rules)" ]'), #test
 	Task('Advance','UFW init file is executable', 5, '[ "$(stat -c %a /etc/init.d/ufw | grep 755)" ]'), #test
 		#Sysctl
-	Task('Returner','IPV4 TCP/IP SYN cookies enabled', 3, '[ "$(grep net.ipv4.tcp_syncookies=1 /etc/sysctl.conf)" ]'), #test
-	Task('Returner','IPV4 ICMP redirets disabled', 3, '[ "$(grep "net.ipv4.conf.all.accept_redirects = 0"/etc/sysctl.conf)" ]'), #test
-	Task('Returner','IPV4 logging of martian packets enabled', 3, '[ "$(grep "net.ipv4.conf.all.log_martians = 1" /etc/sysctl.conf)" ]'), #test
+	Task('Returner','IPV4 TCP/IP SYN cookies enabled', 3, '[ "$(grep syncookies=1 /etc/sysctl.conf)" ]'), #test
+	Task('Returner','IPV4 ICMP redirets disabled', 3, '[ "$(grep "redirects = 0"/etc/sysctl.conf)" ]'), #test
+	Task('Returner','IPV4 logging of martian packets enabled', 3, '[ "$(grep "martians = 1" /etc/sysctl.conf)" ]'), #test
 		#lightdm
 	]
 groups = [] #groups that must exist, or else a penalty
