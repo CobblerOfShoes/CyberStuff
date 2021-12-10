@@ -80,7 +80,7 @@ class Task:
 			return False
 #~~~~~~~~~~~~~~~~~~~~~~THINGS TO SCORE~~~~~~~~~~~~~~~~~~~~~~~~~#
 users = [User(mainUser)] #If a user is deleted, you get a penalty
-services = [Service('samba',22)] #If a service is down, you get a penalty
+services = [Service('samba',445)] #If a service is down, you get a penalty
 allTasks = [
 		#Forensics
 	Task('Forensics','Forensics 1', 7, '[ "$(grep ANSWER /home/'+ mainUser + '/Desktop/Forensics1 | grep e)" ]'),
