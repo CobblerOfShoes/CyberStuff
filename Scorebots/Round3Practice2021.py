@@ -114,7 +114,7 @@ allTasks = [
 		#UFW
 	Task('Beginner','Uncomplicated Firewall is enabled', 1, '[ ! "$(ufw status | grep inactive)" ]'), #test
 	Task('Returner','UFW does not deny incoming samba traffic', 3, '[ ! "$(grep dport /etc/ufw/after.rules)" ]'), #test
-	Task('Advance','UFW init file is executable', 5, '[ "$(stat -c %a /etc/init.d/ufw | grep 755)" ]'), #test
+	Task('Advanced','UFW init file is executable', 5, '[ "$(stat -c %a /etc/init.d/ufw | grep 755)" ]'), #test
 		#Sysctl
 	Task('Returner','IPV4 TCP/IP SYN cookies enabled', 3, '[ "$(grep -e syncookies=1 -e "syncookies = 1" /etc/sysctl.conf)" ]'), #test
 	Task('Returner','IPV4 ICMP redirets disabled', 3, '[ "$(grep -e "redirects = 0" -e "redirects=0" /etc/sysctl.conf)" ]'), #test
