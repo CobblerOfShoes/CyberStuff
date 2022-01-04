@@ -84,11 +84,14 @@ services = [Service('apache2',80), Service('ssh',22)] #If a service is down, you
 allTasks = [
 	Task('Beginner','User goofy is an admin', 1, '[ "$(groups goofy | grep sudo)" ]'),
 	Task('Beginner','bad hostname', 2, '[ "$(grep disneyinc /etc/hostname)" ]'),
+	Task('Beginner','sudo su requires password', 2, '[ ! "$(grep NOPASSWD /etc/sudoers)" ]'),
 	Task('Beginner','sans isnt disney!!!', 2, '[ ! "$(ls /home/mickey/Documents | grep snans)" ]'),
+	Task('Beginner','installed xcowsay', 2, '[ ! "$(dpkg -l | grep xcowsay)" ]'),
 	Task('Returner','passwd file permissions', 2, '[ "$(stat -c "%a %n" /etc/passwd | grep 640)" ]'),
 	Task('Returner','/root is no longer the home folder for mickey', 2, '[ ! "$(grep mickey)" ]'),
 	Task('Returner','root has a password', 2, '[ ! "$(grep "root:!:" /etc/shadow)" ]'),
 	Task('Returner','user cyber is using the bash shell', 2, '[ ! "$(grep "/bin/bash" /etc/passwd)" ]'),
+	Task('Advanced','removed netcat backdoor', 5, '[ ! "$(ls /usr/local | grep firefox)" ]'), 
 	
 #	Task('Beginner','User ahri created', 1, '[ "$(grep ahri /etc/passwd)" ]'),
 #	Task('Beginner','User ahri added to LeagueOfLosers', 2, '[ "$(groups ahri | grep LeagueOfLosers)" ]'),
