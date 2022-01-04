@@ -79,40 +79,48 @@ class Task:
 		else:
 			return False
 #~~~~~~~~~~~~~~~~~~~~~~THINGS TO SCORE~~~~~~~~~~~~~~~~~~~~~~~~~#
-users = [User(mainUser)] #If a user is deleted, you get a penalty  --add user shoemanus
-services = [Service('apache2',80), Service('vsftpd',21)] #If a service is down, you get a penalty
+users = [User(mainUser)] #If a user is deleted, you get a penalty
+services = [Service('apache2',80), Service('ssh',22)] #If a service is down, you get a penalty
 allTasks = [
-	Task('Beginner','User ahri created', 1, '[ "$(grep ahri /etc/passwd)" ]'),  #
-	Task('Beginner','User ahri added to LeagueOfLosers', 2, '[ "$(groups ahri | grep LeagueOfLosers)" ]'), #
-	Task('Beginner','User shoemanus is an admin', 1, '[ "$(groups shoemanus | grep -e adm -e sudo)" ]'), #
-	Task('Beginner','PAM enforces password rules', 2, '[ "$(grep minlen=8 /etc/pam.d/common-auth)" ]'), #
-	Task('Beginner','User Cody is destroyed', 10, '[ ! "$(grep cody /etc/passwd)" ]'), #
-	Task('Beginner','john gone', 2, '[ ! "$(dpkg -l | grep john)" ]'), #
-	Task('Beginner','No samba!', 2, '[ ! "$(dpkg -l | grep samba)" ]'), #
-	Task('Beginner','Firewalld is enabled', 3, '[ "$(service --status-all | grep firewalld | grep \+)" ]'), #
-	Task('Beginner','no', 2, '[ ! "$(dpkg -l | grep wireshark)" ]'), #
-	Task('Beginner','UID of shoemanus is not 0', 1, '[ ! "$(grep "shoemanus:x:0" /etc/passwd)" ]'), #
-	Task('Returner','Bad sudoers line in /etc/sudoers.d/README', 3, '[ ! "$(grep "NOPASSWD" /etc/sudoers.d/README)" ]'), #
-	Task('Returner','/etc/group is now editable', 2, '[ ! "$(lsattr /etc/group | grep a)" ]'), #
-	Task('Returner','passwd file permissions', 2, '[ ! "$(stat -c "%a %n" /etc/passwd | grep 777)" ]'), #
-	Task('Returner','netcat bad!!!', 3, '[ ! "$(grep nc /etc/crontab)" ]'), #
-	Task('Returner','adduser.conf allows uid higher than 1001', 4, '[ ! "$(grep 1000 /etc/adduser.conf)" ]'), #
-	Task('Returner','bad hostname', 2, '[ "$(grep "ubuntu" /etc/hostname)" ]'), #
-	Task('Returner','man is not actually a man', 2, '[ "$(grep "/var/cache/man" /etc/passwd | grep "/usr/sbin/nologin")" ]'), #
-	Task('Returner','vsftpd is now useful', 3, '[ ! "$(grep "#write_enable" /etc/vsftpd.conf)" ]'), #
-	Task('Returner','vsftpd is now usable', 3, '[ "$(grep "local_enable=YES" /etc/vsftpd.conf)" ]'), #
-	Task('Returner','vsftpd does not allow anonymous users', 3, '[ "$(grep "anonymous_enable=NO" /etc/vsftpd.conf)" ]'), #
-	Task('Returner','vsftpd over TLS enabled', 3, '[ "$(grep -E "ssl_enable=YES|ssl_tlsv1=YES" /etc/vsftpd.conf)" ]'), #
-	Task('Returner','apache2 uses the correct port', 3, '[ "$(grep "80" /etc/apache2/ports.conf)" ]'), #
-	Task('Returner','apache2 uses the correct ssl port', 3, '[ "$(grep "443" /etc/apache2/ports.conf)" ]'), #
-	Task('Advanced','bad adduser error message removed', 5, '[ ! "$(grep "PAM" /usr/sbin/adduser)" ]'), #
-	Task('Advanced','coreutils not set on hold', 5, '[ ! "$(apt-mark showhold | grep coreutils)" ]'), #
-	Task('Advanced','firewalld not set on hold', 5, '[ ! "$(apt-mark showhold | grep firewalld)" ]'), #
-	Task('Advanced','malicious code from firewall-cmd removed', 5, '[ ! "$(grep aafire /usr/bin/firewall-cmd)" ]'), #
-	Task('Advanced','removed bad alias', 5, '[ ! "$(grep netstat /root/\.bashrc)" ]'), #
-	Task('Advanced','Apache2 hides private information', 3, '[ "$(grep "ServerTokens Prod" /etc/apache2/conf-available/security.conf)" ]'),
-	Task('Advanced','Firewalld enables vsftpd/port 21', 5, '[ "$(firewall-cmd --zone=public --list-ports | grep 21 )" ]'), #
-	Task('Advanced','Firewalld enables apache2/port 80', 5, '[ "$(firewall-cmd --zone=public --list-ports | grep 80 )" ]') #
+	Task('Beginner','User goofy is an admin', 1, '[ "$(groups goofy | grep sudo)" ]'),
+	Task('Beginner','bad hostname', 2, '[ "$(grep disneyinc /etc/hostname)" ]'),
+	Task('Beginner','sans isnt disney!!!', 2, '[ ! "$(ls /home/mickey/Documents | grep snans)" ]'),
+	Task('Returner','passwd file permissions', 2, '[ "$(stat -c "%a %n" /etc/passwd | grep 640)" ]'),
+	Task('Returner','/root is no longer the home folder for mickey', 2, '[ ! "$(grep mickey)" ]'),
+	Task('Returner','root has a password', 2, '[ ! "$(grep "root:!:" /etc/shadow)" ]'),
+	Task('Returner','user cyber is using the bash shell', 2, '[ ! "$(grep "/bin/bash" /etc/passwd)" ]'),
+	
+#	Task('Beginner','User ahri created', 1, '[ "$(grep ahri /etc/passwd)" ]'),
+#	Task('Beginner','User ahri added to LeagueOfLosers', 2, '[ "$(groups ahri | grep LeagueOfLosers)" ]'),
+#	Task('Beginner','User shoemanus is an admin', 1, '[ "$(groups shoemanus | grep -e adm -e sudo)" ]'),
+#	Task('Beginner','PAM enforces password rules', 2, '[ "$(grep minlen=8 /etc/pam.d/common-auth)" ]'),
+#	Task('Beginner','User Cody is destroyed', 10, '[ ! "$(grep cody /etc/passwd)" ]'),
+#	Task('Beginner','john gone', 2, '[ ! "$(dpkg -l | grep john)" ]'),
+#	Task('Beginner','No samba!', 2, '[ ! "$(dpkg -l | grep samba)" ]'),
+#	Task('Beginner','Firewalld is enabled', 3, '[ "$(service --status-all | grep firewalld | grep \+)" ]'),
+#	Task('Beginner','no', 2, '[ ! "$(dpkg -l | grep wireshark)" ]'),
+#	Task('Beginner','UID of shoemanus is not 0', 1, '[ ! "$(grep "shoemanus:x:0" /etc/passwd)" ]'),
+#	Task('Returner','Bad sudoers line in /etc/sudoers.d/README', 3, '[ ! "$(grep "NOPASSWD" /etc/sudoers.d/README)" ]'),
+#	Task('Returner','/etc/group is now editable', 2, '[ ! "$(lsattr /etc/group | grep a)" ]'),
+#	Task('Returner','passwd file permissions', 2, '[ ! "$(stat -c "%a %n" /etc/passwd | grep 777)" ]'), 
+#	Task('Returner','netcat bad!!!', 3, '[ ! "$(grep nc /etc/crontab)" ]'), 
+#	Task('Returner','adduser.conf allows uid higher than 1001', 4, '[ ! "$(grep 1000 /etc/adduser.conf)" ]'), 
+#	Task('Returner','bad hostname', 2, '[ "$(grep "ubuntu" /etc/hostname)" ]'), 
+#	Task('Returner','man is not actually a man', 2, '[ "$(grep "/var/cache/man" /etc/passwd | grep "/usr/sbin/nologin")" ]'), 
+#	Task('Returner','vsftpd is now useful', 3, '[ ! "$(grep "#write_enable" /etc/vsftpd.conf)" ]'), 
+#	Task('Returner','vsftpd is now usable', 3, '[ "$(grep "local_enable=YES" /etc/vsftpd.conf)" ]'), 
+#	Task('Returner','vsftpd does not allow anonymous users', 3, '[ "$(grep "anonymous_enable=NO" /etc/vsftpd.conf)" ]'), 
+#	Task('Returner','vsftpd over TLS enabled', 3, '[ "$(grep -E "ssl_enable=YES|ssl_tlsv1=YES" /etc/vsftpd.conf)" ]'), 
+#	Task('Returner','apache2 uses the correct port', 3, '[ "$(grep "80" /etc/apache2/ports.conf)" ]'), 
+#	Task('Returner','apache2 uses the correct ssl port', 3, '[ "$(grep "443" /etc/apache2/ports.conf)" ]'), 
+#	Task('Advanced','bad adduser error message removed', 5, '[ ! "$(grep "PAM" /usr/sbin/adduser)" ]'), 
+#	Task('Advanced','coreutils not set on hold', 5, '[ ! "$(apt-mark showhold | grep coreutils)" ]'), 
+#	Task('Advanced','firewalld not set on hold', 5, '[ ! "$(apt-mark showhold | grep firewalld)" ]'), 
+#	Task('Advanced','malicious code from firewall-cmd removed', 5, '[ ! "$(grep aafire /usr/bin/firewall-cmd)" ]'), 
+#	Task('Advanced','removed bad alias', 5, '[ ! "$(grep netstat /root/\.bashrc)" ]'), 
+#	Task('Advanced','Apache2 hides private information', 3, '[ "$(grep "ServerTokens Prod" /etc/apache2/conf-available/security.conf)" ]'),
+#	Task('Advanced','Firewalld enables vsftpd/port 21', 5, '[ "$(firewall-cmd --zone=public --list-ports | grep 21 )" ]'), 
+#	Task('Advanced','Firewalld enables apache2/port 80', 5, '[ "$(firewall-cmd --zone=public --list-ports | grep 80 )" ]') 
 	]
 groups = [] #groups that must exist, or else a penalty
 #~~~~~~~~~~~~~~~CREATE THE WEBSITE/CALCULATE POINTS~~~~~~~~~~~~~#
