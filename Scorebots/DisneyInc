@@ -104,8 +104,8 @@ allTasks = [
 	Task('Returner','apache2 enabled modules are included', 2, '[ ! "$(grep IncludeOptional /etc/apache2/apache2.conf | grep #)" ]'),
 	Task('Returner','apache2 not running as root', 2, '[ "$(grep APACHE_RUN_USER /etc/apache2/envvars | grep www-data)" ]'),
 	Task('Advanced','php config file permissions', 5, '[ "$(stat -c "%a %n" /etc/php/7.3/apache2/php.ini | grep 640)" ]'),
-	Task('Advanced','php is unexposed', 5, '[ "$(grep expose_php /etc/php/7.3/apache2/php.ini | grep -i on)" ]'),
-	Task('Advanced','php logs errors', 5, '[ "$(grep log_errors /etc/php/7.3/apache2/php.ini | grep -i off)" ]'),
+	Task('Advanced','php is unexposed', 5, '[ "$(grep expose_php /etc/php/7.3/apache2/php.ini | grep -i off)" ]'),
+	Task('Advanced','php logs errors', 5, '[ "$(grep log_errors /etc/php/7.3/apache2/php.ini | grep -i on)" ]'),
 	Task('Advanced','removed netcat backdoor', 5, '[ ! "$(ls /usr/local | grep firefox)" ]'),
 	Task('Advanced','reset user owner of ufw init file to root', 5, '[ "$(ls -l /etc/init.d | grep ufw | grep root)" ]'),
 	]
