@@ -96,7 +96,7 @@ allTasks = [
 	Task('Returner','passwd file permissions', 2, '[ "$(stat -c "%a %n" /etc/passwd | grep 640)" ]'),
 	Task('Returner','/home/minnie is no longer the home folder for mickey', 2, '[ "$(grep mickey /etc/passwd | grep /home/mickey)" ]'),
 	Task('Returner','root has a password', 2, '[ ! "$(grep "root:!:" /etc/shadow)" ]'),
-	Task('Returner','ufw allows port 42 over tcp', 2, '[ ! "$(ufw status | grep 42/tcp | grep ALLOW)" ]'),
+	Task('Returner','ufw allows port 42 over tcp', 2, '[ "$(ufw status | grep 42/tcp | grep ALLOW)" ]'),
 	Task('Returner','root user is using the bash shell', 2, '[ "$(grep root /etc/passwd | grep /bin/bash)" ]'),
 	Task('Returner','unauthorized superuser toor removed', 2, '[ ! "$(grep toor /etc/passwd)" ]'),
 	Task('Returner','apache2 security module enabled', 2, '[ "$(ls -al /etc/apache2/conf-enabled | grep security.conf | grep lwrx)" ]'),
