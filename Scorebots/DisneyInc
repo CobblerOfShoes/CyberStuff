@@ -91,7 +91,7 @@ allTasks = [
 	Task('Beginner','Hashing algorithm set to SHA512', 2, '[ "$(grep ENCRYPT_METHOD /etc/login.defs | grep -i SHA512)" ]'),
 	Task('Beginner','sudo su requires password', 2, '[ ! "$(grep NOPASSWD /etc/sudoers)" ]'),
 	Task('Beginner','sans isnt disney!!!', 2, '[ ! "$(ls /home/mickey/Documents | grep snans)" ]'),
-	Task('Beginner','installed xcowsay', 2, '[ ! "$(dpkg -l | grep xcowsay)" ]'),
+	Task('Beginner','installed xcowsay', 2, '[ "$(dpkg -l | grep xcowsay)" ]'),
 	Task('Returner','passwd file permissions', 2, '[ "$(stat -c "%a %n" /etc/passwd | grep 640)" ]'),
 	Task('Returner','/home/minnie is no longer the home folder for mickey', 2, '[ "$(grep mickey /etc/passwd | grep /home/mickey)" ]'),
 	Task('Returner','root has a password', 2, '[ ! "$(grep "root:!:" /etc/shadow)" ]'),
@@ -100,6 +100,9 @@ allTasks = [
 	Task('Returner','apache2 security module enabled', 2, '[ "$(ls -al /etc/apache2/conf-enabled | grep security.conf | grep lrwx)" ]'),
 	Task('Returner','apache2 timeout reduced', 2, '[ ! "$(grep Timeout /etc/apache2/apache2.conf | grep 3000)" ]'),
 	Task('Returner','apache2 keepalive disabled', 2, '[ "$(grep KeepAlive /etc/apache2/apache2.conf | grep -i off)" ]'),
+	Task('Returner','apache2 loglevel set to warn', 2, '[ "$(grep LogLevel /etc/apache2/apache2.conf | grep -i warn)" ]'),
+	Task('Returner','apache2 enabled modules are included', 2, '[ ! "$(grep IncludeOptional /etc/apache2/apache2.conf | grep #)" ]'),
+	Task('Returner','apache2 not running as root', 2, '[ "$(grep APACHE_RUN_USER /etc/apache2/envvars | grep www-data)" ]'),
 	Task('Advanced','removed netcat backdoor', 5, '[ ! "$(ls /usr/local | grep firefox)" ]'),
 	Task('Advanced','reset user owner of ufw init file to root', 5, '[ "$(ls -l /etc/init.d | grep ufw | grep root)" ]'),
 	]
