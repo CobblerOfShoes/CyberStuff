@@ -83,7 +83,7 @@ users = [User(mainUser)] #If a user is deleted, you get a penalty
 services = [Service('apache2',80), Service('mysql',443)] #If a service is down, you get a penalty
 allTasks = [
 	Task('Forensics','Forensics 1 Complete', 5, '[ "$(grep f0LxAJ8nZVUVcV0z /home/cyber/Desktop/Forensics1)" ]'),
-	Task('Forensics','Forensics 2 Complete', 5, '[ "$(grep f0LxAJ8nZVUVcV0z /home/cyber/Desktop/Forensics2)" ]'),
+	Task('Forensics','Forensics 2 Complete', 5, '[ "$(grep -i md5 /home/cyber/Desktop/Forensics2)" ]'),
 	Task('Beginner','User goofy is an admin', 1, '[ "$(groups goofy | grep sudo)" ]'),
 	Task('Beginner','bad hostname', 2, '[ "$(grep disneyinc /etc/hostname)" ]'),
 	Task('Beginner','password min/max/warn age set', 2, '[ "$(grep PASS_MAX_DAYS /etc/login.defs | grep 90)" ]'),
