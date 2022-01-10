@@ -97,7 +97,7 @@ allTasks = [
 	Task('Returner','root has a password', 2, '[ ! "$(grep "root:!:" /etc/shadow)" ]'),
 	Task('Returner','root user is using the bash shell', 2, '[ "$(grep root /etc/passwd | grep /bin/bash)" ]'),
 	Task('Returner','unauthorized superuser toor removed', 2, '[ ! "$(grep toor /etc/passwd)" ]'),
-	Task('Returner','apache2 security module enabled', 2, '[ "$(ls -al /etc/apache2/mods-enabled | grep security.conf | grep lwrx)" ]'),
+	Task('Returner','apache2 security module enabled', 2, '[ "$(ls -al /etc/apache2/conf-enabled | grep security.conf | grep lwrx)" ]'),
 	Task('Returner','apache2 timeout reduced', 2, '[ ! "$(grep Timeout /etc/apache2/apache2.conf | grep 3000)" ]'),
 	Task('Returner','apache2 keepalive disabled', 2, '[ "$(grep KeepAlive /etc/apache2/apache2.conf | grep -i off)" ]'),
 	Task('Returner','apache2 loglevel set to warn', 2, '[ "$(grep LogLevel /etc/apache2/apache2.conf | grep -i warn)" ]'),
