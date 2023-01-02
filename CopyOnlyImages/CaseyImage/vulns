@@ -1,0 +1,13 @@
+F1 -
+F2 -
+F3 -
+Change hostname to NewShare
+Remove germ from sudo group
+bad sudo su alias
+mysql port
+root user for apache
+bad sym link in main apache directory
+gdm (gnome user) does not have a login shell
+LT group has sudo permissions
+PHP upgraded to version x
+shadow file removed from mysql database
