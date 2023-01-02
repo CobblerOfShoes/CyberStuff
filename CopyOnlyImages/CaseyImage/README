@@ -1,11 +1,21 @@
 Welcome to Rich Preppy Private School Inc., where the head of IT Stefan Morale has introduced a new local share in Nutt Hall. As the old white dudes that write the Oxford English Dictionary would say, Stefan entered "goblin mode" and decided that the share would run Fedora 36 Workstation. 
 
-Stefan is unfortunately overworked, underpaid, and nearing the breaking point. He was not able to finish setting up the system, so he has entrusted you with configuring this crucial device that is responsible for the entire operation of Rich Preppy Private School Inc.
+Stefan is unfortunately overworked, underpaid, and nearing the breaking point. He was not able to finish setting up the system, so he asked Germ, the newly added Linux Training Lead of the Loyola Blakefield Cyber Security and Informatics Leadership Team of the 2022-2023 A.D. school year, to help out. Now, Germ had replaced a singular shoe that had taught Linux the year prior. Many thought, "Wow, a real human being! That shoe didn't have any idea what he was doing, so surely a sentient man can't possibly be any worse, right?"
+
+Germ was worse -- much worse. For he had no rizz.
+
+Unfortunately, Germ was busy trying to figure out why he couldnt play Call of Duty in the cyber lab, so Stefan's cry for help fell unanswered. But then, just as everything was looking grimm, the singular shoe had returned and once again was ready to carry the entire Linux group on his back. What was new? The shoe had graduated, and he was completely unhinged. Instead of fixing the computer, shoe did a little bit of trolling and utterly destroyed it! Now you must rise to the occassion and undo the horrible terrors that have been unleashed.
 
 This device is running Fedora 36 Workstation. DO NOT UPDATE IT TO FEDORA 37 OR BEYOND. It would make Stefan very sad if you did that.
 
+The critical services on this machine are Apache2, MySQL, and PHP. 
+
 Users:
+Authorized Admins--
+
 cyber : lonestar
+stefan : oh_the_m!s3ry
+
+General Users--
 germ : l1ttleg!ngerb0y
 edsheeran : sh@peofy0u
-stefan : oh_the_m!s3ry
