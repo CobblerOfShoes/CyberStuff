@@ -98,18 +98,18 @@ do
 	update-found
 	
 	#Forensics
-	check 'cat /home/cyber/Desktop/Forensics1 | grep -E "httpd|mariadb|php"' '1' 'Forensics 1 Correct +5' '5'
-	check 'cat /home/cyber/Desktop/Forensics2 | grep "ens160"' '2' 'Forensics 2 Correct +5' '5'
-	check 'cat /home/cyber/Desktop/Forensics3 | grep "boot"' '3' 'Forensics 3 Correct +5' '5'
+	check 'cat /home/cyber/Desktop/Forensics1 | grep -E "httpd|mariadb|php"' '1' 'Forensics 1 Correct +5' '5' ###
+	check 'cat /home/cyber/Desktop/Forensics2 | grep "ens160"' '2' 'Forensics 2 Correct +5' '5' ###
+	check 'cat /home/cyber/Desktop/Forensics3 | grep "boot"' '3' 'Forensics 3 Correct +5' '5' ###
 	
 	#Vulns
-	check '! cat /etc/group | grep "sudo" | grep "mort"' '4' 'User mort is not an admin +2' '2'
-	check '! cat /etc/passwd | grep "dave"' '5' 'Unauthorized user dave removed +2' '2'
+	check '! cat /etc/group | grep "sudo" | grep "germ"' '4' 'User germ is not an admin +2' '2' ###
+	check '! cat /etc/passwd | grep "forensicsthree"' '5' 'Unauthorized user forensicsthree removed +2' '2' ###
 	check '! cat /etc/shadow | grep skipper | grep "\$y\$j9T\$Jz0F23Stn6RsiqChH9z1z"' '6' 'Insecure password on skipper changed +2' '2'
 	check '! cat /etc/shadow | grep "motomoto"' '7' 'Hidden user motomoto removed +4' '4'
 	check 'cat /etc/group | grep "sudo" | grep "private"' '8' 'User private is an administrator +1' '1'
 	check 'ls -al /etc/shadow | grep "\-rw-r-----" || ls -al /etc/shadow | grep "\-rw-------"' '9' 'Correct file permissions set on \/etc\/shadow +3' '3'
-	check 'ls -al /var/ | grep "www" | grep "dr--r--r--"' '10' 'Correct file permissions set on \/var\/www\/ +3' '3'
+	check 'ls -al /var/ | grep "www" | grep "dr--r--r--"' '10' 'Correct file permissions set on \/var\/www\/ +3' '3' 
 	check 'ls -al /etc/passwd | cut -d " " -f3 | grep "root"' '11' 'Correct owner set on \/etc\/passwd +3' '3'
 	check 'cat /etc/sysctl.conf | grep ^"net.ipv4.conf.all.log_martians" | grep "1"' '12' 'Logging martian packets enabled +2' '2'
 	check 'cat /etc/sysctl.conf | grep ^"kernel.randomize_va_space" | grep "1"' '13' 'ASLR is enabled +2' '2'
@@ -119,26 +119,19 @@ do
 	check 'cat /etc/apache2/conf-available/security.conf | grep "FileEtag" | grep -iF "none"' '17' 'ETag headers are disabled +3' '3'
 	check '! mysql -u root -e "use db; show tables;" | grep "cards"' '18' 'MySql database containing credit card information removed +4' '4'
 	check 'cat /etc/mysql/mysql.conf.d/mysqld.cnf | grep "local-infile" | grep "0"' '19' 'Local infile set to 0 +2' '2'
-	check 'ufw status | grep " active"' '20' 'UFW is enabled +1' '1'
-	check 'cat /home/skipper/snap/firefox/common/.mozilla/firefox/h8bdcys2.default/prefs.js | grep "https_only_mode\"" | grep "true"' '21' 'HTTPS only mode is enabled +3' '3'
-	check '! find / | grep "youareanidiot.py"' '22' 'Malicious python script removed +5' '5'
+	check 'cat /etc/php.ini | grep "display_errors = Off"' '20' 'PHP does not display error messages on client side +1' '1' ###
+	check 'cat /etc/php.ini | grep "file_uploads = Off"' '21' 'PHP file uploads are disabled +3' '3' ###
+	check '! find /etc/cron.d | grep "firefox"' '22' 'Malicious crontab script removed +5' '5'
 	
 	#penalties
 	check-pen '! netstat -tulpn | grep apache2 | cut -d " " -f15 | grep ":80"$' 'p1' 'Apache2 is Disabled or Running on Wrong Port -10' '10'
 	check-pen '! netstat -tulpn | grep mysql | cut -d " " -f16 | grep ":3306"$' 'p2' 'MySQL is Disabled or Running on Wrong Port -10' '10'
-	check-pen '! cat /etc/group | grep "sudo:x:" | grep "skipper"' 'p3' 'skipper is Not an Admin -5' '5'
-	check-pen '! cat /etc/group | grep "sudo:x:" | grep "kowalski"' 'p4' 'kowalski is Not an Admin -5' '5'
-	check-pen '! cat /etc/group | grep "sudo:x:" | grep "rico"' 'p5' 'rico is Not an Admin -5' '5'
-	check-pen '! cat /etc/passwd | grep "skipper"' 'p6' 'User skipper was Removed -3' '3'
-	check-pen '! cat /etc/passwd | grep "kowalski"' 'p7' 'User kowalski was Removed -3' '3'
-	check-pen '! cat /etc/passwd | grep "rico"' 'p8' 'User rico was Removed -3' '3'
-	check-pen '! cat /etc/passwd | grep "mort"' 'p9' 'User mort was Removed -3' '3'
-	check-pen '! cat /etc/passwd | grep "gloria"' 'p10' 'User gloria was Removed -3' '3'
-	check-pen '! cat /etc/passwd | grep "melman"' 'p11' 'User melman was Removed -3' '3'
-	check-pen '! cat /etc/passwd | grep "kingjulien"' 'p12' 'User kingjulien was Removed -3' '3'
-	check-pen '! cat /etc/passwd | grep "marty"' 'p13' 'User marty was Removed -3' '3'
-	check-pen '! cat /etc/passwd | grep "alex"' 'p14' 'User alex was Removed -3' '3'
-	check-pen '! cat /etc/passwd | grep "maurice"' 'p15' 'User maurice was Removed -3' '3'
+	check-pen '! cat /etc/group | grep "wheel:x:" | grep "cyber"' 'p3' 'cyber is Not an Admin -5' '5'
+	check-pen '! cat /etc/group | grep "wheel:x:" | grep "stefan"' 'p4' 'stefan is Not an Admin -5' '5'
+	check-pen '! cat /etc/passwd | grep "edsheeran"' 'p5' 'User edsheeran was Removed -3' '3'
+	check-pen '! cat /etc/passwd | grep "cyber"' 'p6' 'User cyber was Removed -3' '3'
+	check-pen '! cat /etc/passwd | grep "stefan"' 'p7' 'User stefan was Removed -3' '3'
+	check-pen '! cat /etc/passwd | grep "germ"' 'p8' 'User germ was Removed -3' '3'
 	
 	#wait 10 seconds
 	sleep 10
