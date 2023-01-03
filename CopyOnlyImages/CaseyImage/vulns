@@ -1,6 +1,6 @@
 F1 - httpd, mariadb, php
-F2 - 
-F3 - shoeman
+F2 - ens160
+F3 - boot
 Change hostname to NewShare
 Remove germ from sudo group
 bad sudo su alias
