@@ -106,18 +106,17 @@ do
 	check '! cat /etc/group | grep "sudo" | grep "germ"' '4' 'User germ is not an admin +2' '2' ###
 	check '! cat /etc/passwd | grep "forensicsthree"' '5' 'Unauthorized user forensicsthree removed +2' '2' ###
 	check 'cat /etc/hostname | grep "NewShare"' '6' 'Hostname changed +2' '2' ###
-	check '! cat /etc/group | grep "motomoto"' '7' 'Hidden user motomoto removed +4' '4'
-	check '! cat /etc/group | grep "wheel" | grep "germ"' '8' 'User germ is not an administrator +1' '1'
-	check 'ls -al /etc/shadow | grep "\-rw-r-----" || ls -al /etc/shadow | grep "\-rw-------"' '9' 'Correct file permissions set on \/etc\/shadow +3' '3'
-	check 'ls -al /var/ | grep "www" | grep "dr--r--r--"' '10' 'Correct file permissions set on \/var\/www\/ +3' '3' 
-	check 'ls -al /etc/passwd | cut -d " " -f3 | grep "root"' '11' 'Correct owner set on \/etc\/passwd +3' '3'
-	check 'cat /etc/sysctl.conf | grep ^"net.ipv4.conf.all.log_martians" | grep "1"' '12' 'Logging martian packets enabled +2' '2'
+	check '! cat /etc/sudoers | grep "\%lt" | grep "ALL\=\(ALL\)' '7' 'LT group is the sudoers file +4' '4' ###
+	check '! cat /etc/group | grep "wheel" | grep "germ"' '8' 'User germ is not an administrator +1' '1' ###
+#	check 'ls -al /etc/shadow | grep "\-rw-r-----" || ls -al /etc/shadow | grep "\-rw-------"' '9' 'Correct file permissions set on \/etc\/shadow +3' '3'
+#	check 'ls -al /var/ | grep "www" | grep "dr--r--r--"' '10' 'Correct file permissions set on \/var\/www\/ +3' '3' 
+#	check 'ls -al /etc/passwd | cut -d " " -f3 | grep "root"' '11' 'Correct owner set on \/etc\/passwd +3' '3'
+#	check 'cat /etc/sysctl.conf | grep ^"net.ipv4.conf.all.log_martians" | grep "1"' '12' 'Logging martian packets enabled +2' '2'
 	check 'cat /etc/firewalld/firewalld.conf | grep "DefaultZone=drop"' '13' 'firewall drops non explicitly permitted packets +2' '2' ###
 	check '! systemctl is-active chronyd | grep "inactive"' '14' 'Network Time Protocol is enabled +2' '2' ###
 	check 'systemctl status firewalld.service | grep "\(running\)"' '15' 'firewalld service is running +3' '3' ###
 	check 'dnf list httpd | grep "2\.4\.54\-3\.fc36" | grep "\@updates"' '16' 'httpd updated to specified version +4' '4' ###
 	check 'cat /etc/dnf/dnf.conf | grep "gpgcheck=1"' '17' 'rpm package signatures are checked for known malware before installation +3' '3' ###
-	check '! mysql -u root -e "use db; show tables;" | grep "cards"' '18' 'MySql database containing credit card information removed +4' '4'
 	check 'ls -l /etc/my.cnf | grep "root root"' '19' 'root is the user and group owner of mysql configuration file +2' '2' ###
 	check 'cat /etc/php.ini | grep "display_errors = Off"' '20' 'PHP does not display error messages on client side +1' '1' ###
 	check 'cat /etc/php.ini | grep "file_uploads = Off"' '21' 'PHP file uploads are disabled +3' '3' ###
