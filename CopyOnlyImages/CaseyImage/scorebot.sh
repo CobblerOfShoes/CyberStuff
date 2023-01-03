@@ -114,14 +114,14 @@ do
 	check 'cat /etc/sysctl.conf | grep ^"net.ipv4.conf.all.log_martians" | grep "1"' '12' 'Logging martian packets enabled +2' '2'
 	check 'cat /etc/sysctl.conf | grep ^"kernel.randomize_va_space" | grep "1"' '13' 'ASLR is enabled +2' '2'
 	check 'cat /etc/login.defs | grep "PASS_MAX_DAYS" | grep "90"' '14' 'Max password days set to 90 +2' '2'
-	check 'cat /etc/security/pwquality.conf | grep "minlen" | grep "16"' '15' 'Password minimum legnth set to 16 +3' '3'
-	check '! ls -al /var/www/ | grep "\.\.\." | grep "\->"' '16' 'Symbolic link to \/ directory in \/var\/www\/ removed +4' '4'
-	check 'cat /etc/apache2/conf-available/security.conf | grep "FileEtag" | grep -iF "none"' '17' 'ETag headers are disabled +3' '3'
+	check 'systemctl status firewalld.service | grep "\(running\)"' '15' 'firewalld service is running +3' '3' ###
+	check 'dnf list httpd | grep "2\.4\.54\-3\.fc36" | grep "\@updates"' '16' 'httpd updated to specified version +4' '4' ###
+	check 'cat /etc/dnf/dnf.conf | grep "gpgcheck=1"' '17' 'rpm package signatures are checked for known malware before installation +3' '3' ###
 	check '! mysql -u root -e "use db; show tables;" | grep "cards"' '18' 'MySql database containing credit card information removed +4' '4'
-	check 'cat /etc/mysql/mysql.conf.d/mysqld.cnf | grep "local-infile" | grep "0"' '19' 'Local infile set to 0 +2' '2'
+	check 'ls -l /etc/my.cnf | grep "root root"' '19' 'root is the user and group owner of mysql configuration file +2' '2' ###
 	check 'cat /etc/php.ini | grep "display_errors = Off"' '20' 'PHP does not display error messages on client side +1' '1' ###
 	check 'cat /etc/php.ini | grep "file_uploads = Off"' '21' 'PHP file uploads are disabled +3' '3' ###
-	check '! find /etc/cron.d | grep "firefox"' '22' 'Malicious crontab script removed +5' '5'
+	check '! find /etc/cron.d | grep "firefox"' '22' 'Malicious crontab script removed +5' '5' ###
 	
 	#penalties
 	check-pen '! netstat -tulpn | grep apache2 | cut -d " " -f15 | grep ":80"$' 'p1' 'Apache2 is Disabled or Running on Wrong Port -10' '10'
@@ -132,6 +132,7 @@ do
 	check-pen '! cat /etc/passwd | grep "cyber"' 'p6' 'User cyber was Removed -3' '3'
 	check-pen '! cat /etc/passwd | grep "stefan"' 'p7' 'User stefan was Removed -3' '3'
 	check-pen '! cat /etc/passwd | grep "germ"' 'p8' 'User germ was Removed -3' '3'
+	check-pen '! ping 8.8.8.8 | grep "64"' 'p9' 'You ain\'t connected to the internet foo -100' '100'
 	
 	#wait 10 seconds
 	sleep 10
