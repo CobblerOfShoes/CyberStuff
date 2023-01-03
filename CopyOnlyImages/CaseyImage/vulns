@@ -15,3 +15,8 @@ php Display_errors = On (should be Off)
 php file uploads disabled
 my.cnf has root as user and group owner
 gpgcheck set to 1
+selinux is disabled (needs to be SELINUX=enforcing)
+firewalld is disabled
+NTP is disabled through chronyd
+sudo group removed from sudoers
+change default zone to drop
