@@ -9,7 +9,8 @@ root user for apache
 bad sym link in main apache directory
 gdm (gnome user) does not have a login shell
 LT group has sudo permissions
-PHP upgraded to version x
 shadow file removed from mysql database
 crontab script to disable networking (nmcli networking off)
 evil firefox alias
+php Display_errors = On (should be Off)
+php file uploads disabled
