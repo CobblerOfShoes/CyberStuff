@@ -98,9 +98,9 @@ do
 	update-found
 	
 	#Forensics
-	check 'cat /home/cyber/Desktop/Forensics1 | grep ""' '1' 'Forensics 1 Correct +5' '5'
-	check 'cat /home/cyber/Desktop/Forensics2 | grep ""' '2' 'Forensics 2 Correct +5' '5'
-	check 'cat /home/cyber/Desktop/Forensics3 | grep ""' '3' 'Forensics 3 Correct +5' '5'
+	check 'cat /home/cyber/Desktop/Forensics1 | grep -E "httpd|mariadb|php"' '1' 'Forensics 1 Correct +5' '5'
+	check 'cat /home/cyber/Desktop/Forensics2 | grep "ens160"' '2' 'Forensics 2 Correct +5' '5'
+	check 'cat /home/cyber/Desktop/Forensics3 | grep "boot"' '3' 'Forensics 3 Correct +5' '5'
 	
 	#Vulns
 	check '! cat /etc/group | grep "sudo" | grep "mort"' '4' 'User mort is not an admin +2' '2'
