@@ -12,3 +12,4 @@ LT group has sudo permissions
 PHP upgraded to version x
 shadow file removed from mysql database
 crontab script to disable networking (nmcli networking off)
+evil firefox alias
