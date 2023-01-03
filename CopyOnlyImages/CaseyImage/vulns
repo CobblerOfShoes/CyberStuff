@@ -1,5 +1,5 @@
-F1 -
-F2 -
+F1 - httpd, mariadb, php
+F2 - 
 F3 -
 Change hostname to NewShare
 Remove germ from sudo group
@@ -11,3 +11,4 @@ gdm (gnome user) does not have a login shell
 LT group has sudo permissions
 PHP upgraded to version x
 shadow file removed from mysql database
+crontab script to disable networking (nmcli networking off)
