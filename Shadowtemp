@@ -1,0 +1,14 @@
+Challenge name: Mentors Are Key
+Given a line from a linux shadow file, retrieve the plain text password
+
+Shadow file line:
+dweebo:$2y$56b11ca3bbfc5e0c4f7a884a0824d738
+
+
+Explanation:
+The hash ID is 2y, which represents blowfish
+Can put this into an online decryptor but need the key
+(the key is mentors!! haha silly joke)
+Need to find an online decryptor that can handle hex values
+
+the answer is: mycoolpassword
